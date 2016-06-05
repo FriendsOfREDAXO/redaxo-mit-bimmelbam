@@ -1,2 +1,1 @@
-# redaxo-mit-bimmelbam
-REDAXO mit Gulp, Browserify, PostCSS und Bimmelbam
+# REDAXO mit Gulp, Browserify, PostCSS und Bimmelbam
