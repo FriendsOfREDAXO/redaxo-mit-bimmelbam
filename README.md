@@ -52,4 +52,4 @@ _Achtung, es kommen mehrere hundert Megabyte an Daten durch die Leitung!_
 
 
 Hat nicht geklappt? Sorry :-(  
-Nicht ärgern und lieber im [REDAXO-Slack](http://redaxo.org/slack/) nachfragen, dort wird dir geholfen!
+Nicht ärgern und lieber im [REDAXO-Slack](http://redaxo.org/slack/) nachfragen oder im [Forum](http://www.redaxo.org/de/forum/allgemeines-f39/frontend-workflow-fur-redaxo-mit-gulp-browserify-postcss-t21541.html#p120663), dort wird dir geholfen!
