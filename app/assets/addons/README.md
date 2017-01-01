@@ -1,0 +1,1 @@
+Dieser Ordner wird von REDAXO angelegt und enthält Assets für Addons.
