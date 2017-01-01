@@ -33,14 +33,23 @@ Nicht enthalten, aber sehr sinnvoll:
 
 ## Setup
 
-1. __Node__ >= 6.9 installieren, falls nicht nicht vorhanden. Kann als Paket direkt von der Website runtergeladen werden: [https://nodejs.org](https://nodejs.org)
+1. __Node__ (>= 6.9) installieren, falls nicht nicht vorhanden. Kann als Paket direkt von der Website runtergeladen werden: [https://nodejs.org](https://nodejs.org)
 2. __Yarn__ installieren, falls noch nicht vorhanden ([Anleitung](https://yarnpkg.com/en/docs/install)).
-3. Im Terminal in unser Verzeichnis wechseln und mittels Yarn die benötigten Pakete holen: `yarn`.  
-_Achtung, es kommen mehrere hundert MegaByte an Daten durch die Leitung!_
-4. __Gulp__ mittels Yarn global installieren: `yarn global add gulp-cli`.
+3. Im Terminal in unser Verzeichnis wechseln und mittels Yarn die benötigten Pakete holen.  
+_Achtung, es kommen mehrere hundert Megabyte an Daten durch die Leitung!_  
+
+        $ yarn
+
+4. __Gulp__ mittels Yarn global installieren:
+
+        $ yarn global add gulp-cli
+
 5. Einen __localhost/vhost__ (z. B. `http://local.bimmelbam`) für unser Projekt anlegen, der für REDAXO funktioniert. Zielverzeichnis des Hosts ist `/app`!
-6. Die `.env` (Environment) im Projektroot anlegen. Dazu einfach die im Paket enthaltene `.env.example` kopieren und entsprechend anpassen: `APP_HOST` entspricht dem eben angelegten Host, `APP_ENV` belassen wir vorerst auf `development`.
-7. Den Frontend-Workflow starten: `gulp`. Danach sollte unsere Frontend-Demo erreichbar sein über `http://localhost:3000/demo/`.
+6. Die `.env` (__Environment__) im Projektroot anlegen. Dazu einfach die im Paket enthaltene `.env.example` kopieren und entsprechend anpassen: `APP_HOST` entspricht dem eben angelegten Host, `APP_ENV` belassen wir vorerst auf `development`.
+7. Den Frontend-Workflow starten. Danach sollte unsere Frontend-Demo erreichbar sein über `http://localhost:3000/demo/`:
+
+        $ gulp
+
 
 Hat nicht geklappt? Sorry :-(  
 Nicht ärgern und lieber im [REDAXO-Slack](http://redaxo.org/slack/) nachfragen, dort wird dir geholfen!
