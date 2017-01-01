@@ -1,0 +1,19 @@
+.footer {
+  text-align: center;
+  font-size: 1.4rem;
+  
+  p {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (min-width: $screen-sm-min) {
+    position: fixed;
+    top: auto;
+    bottom: 2vh;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+

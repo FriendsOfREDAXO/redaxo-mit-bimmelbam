@@ -1,0 +1,33 @@
+// https://material.io/icons/
+// http://google.github.io/material-design-icons/#icon-font-for-the-web
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url('../fonts/MaterialIcons-Regular.woff2') format('woff2'),
+  url('../fonts/MaterialIcons-Regular.woff') format('woff');
+}
+
+.material-icon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+  max-width: 1em; // avoid jumping icons while ligatures being processed
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased; // Support for all WebKit browsers
+  text-rendering: optimizeLegibility; // Support for Safari and Chrome
+  -moz-osx-font-smoothing: grayscale; // Support for Firefox
+  font-feature-settings: 'liga'; // Support for IE
+  transform: translateY(-0.7px); // slightly improve positioning
+}
+

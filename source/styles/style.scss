@@ -1,0 +1,9 @@
+// config (first, may include vendor config)
+@import "_config/bootstrap";
+
+// vendor
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "vendor/ie10-viewport-bug-workaround";
+
+// components
+@import "components/*";
