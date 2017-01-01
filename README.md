@@ -2,6 +2,8 @@
 
 Beispiel eines Frontend-Workflows zur Entwicklung einer REDAXO-Website.
 
+![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/assets/redaxo-mit-bimmelbam.jpg)
+
 ## Idee
 
 * Ein __generischer Frontend-Workflow__, der nicht zwangsläufig REDAXO erfordert, sondern auch im anderen Kontext (statische Website, anderes CMS, Webapp) funktioniert.
