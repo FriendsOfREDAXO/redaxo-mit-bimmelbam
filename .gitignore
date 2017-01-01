@@ -3,6 +3,7 @@
 app/redaxo/data/core/config.yml
 app/redaxo/cache
 app/media/*
+!app/media/README.md
 
 # ENV wird lokal definiert, hat deshalb nichts im Repo zu suchen
 .env
