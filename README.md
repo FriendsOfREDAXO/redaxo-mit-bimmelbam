@@ -33,7 +33,7 @@ Nicht enthalten, aber sehr sinnvoll:
 
 ## Setup
 
-1. __Node__ (>= 6.9) installieren, falls nicht nicht vorhanden. Kann als Paket direkt von der Website runtergeladen werden: [https://nodejs.org](https://nodejs.org)
+1. __Node__ (>= 6.9) installieren, falls noch nicht vorhanden. Kann als Paket direkt von der Website runtergeladen werden: [https://nodejs.org](https://nodejs.org)
 2. __Yarn__ installieren, falls noch nicht vorhanden ([Anleitung](https://yarnpkg.com/en/docs/install)).
 3. Im Terminal in unser Verzeichnis wechseln und mittels Yarn die benötigten Pakete holen.  
 _Achtung, es kommen mehrere hundert Megabyte an Daten durch die Leitung!_  
