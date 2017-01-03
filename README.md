@@ -46,7 +46,7 @@ _Achtung, es kommen mehrere hundert Megabyte an Daten durch die Leitung!_
 
 5. Einen __localhost/vhost__ (z. B. `http://local.bimmelbam`) für unser Projekt anlegen, der für REDAXO funktioniert. Zielverzeichnis des Hosts ist `/app`!
 6. Die `.env` (__Environment__) im Projektroot anlegen. Dazu einfach die im Paket enthaltene `.env.example` kopieren und entsprechend anpassen: `APP_HOST` entspricht dem eben angelegten Host, `APP_ENV` belassen wir vorerst auf `development`.
-7. Den Frontend-Workflow starten. Danach sollte unsere Frontend-Demo erreichbar sein über `http://localhost:3000/demo/`:
+7. Den Frontend-Workflow starten. Danach sollte unser Frontend-Prototyp erreichbar sein über `http://localhost:3000/demo/`:
 
         $ gulp
 
