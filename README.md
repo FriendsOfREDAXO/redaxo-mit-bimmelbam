@@ -21,7 +21,7 @@ Beispiel eines Frontend-Workflows zur Entwicklung einer REDAXO-Website.
 * ein konfigurierbarer [Modernizr](https://modernizr.com) (weil es geht)
 * __Bilder__ werden minifiziert
 * __SVGs__ werden kombiniert und ins HTML gebracht (für Icons)
-* [Bootstrap](http://getbootstrap.com) und [Google Material Icons](https://material.io/icons/) werden als externe Komponenten (via npm) verwendet
+* [Bootstrap](http://getbootstrap.com) und [Google Material Icons](https://material.io/icons/) werden als externe Komponenten (via npm) eingebunden
 * [BrowserSync](https://www.browsersync.io) für __Live-Reload__ und zum Test auf verschiedenen Geräten
 
 Nicht enthalten, aber sehr sinnvoll:
