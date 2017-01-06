@@ -13,7 +13,7 @@ Beispiel eines Frontend-Workflows zur Entwicklung einer REDAXO-Website.
 
 ## Komponenten und Funktionen
 
-* [Yarn](https://yarnpkg.com) statt npm als __package manager__
+* [Yarn](https://yarnpkg.com) als __package manager__
 * [Gulp](http://gulpjs.com) als __task runner__
 * [Sass](http://sass-lang.com) und [PostCSS](http://postcss.org) für __CSS__ (mit [Autoprefixer](http://autoprefixer.github.io), [cssnano](http://cssnano.co) und Bimmelbam)
 * ES6 mit [Babel](http://babeljs.io) und [Browserify](http://browserify.org) für schönes __JavaScript__
@@ -56,10 +56,18 @@ Nicht ärgern und lieber im [REDAXO-Slack](http://redaxo.org/slack/) nachfragen 
 
 ## Wie geht’s weiter?
 
+### REDAXO
+
 In diesem Projekt ist _keine_ REDAXO-Installation enthalten. Wenn deine Gulp-Tasks erfolgreich durchgelaufen sind, kannst du dir REDAXO nun selbst dazustecken, und zwar direkt ins `/app`-Verzeichnis. Dort liegen bereits die typischen REDAXO-Ordner.
 
 Sobald dein REDAXO läuft, kannst du die Website wie gewohnt mittels Templates und Modulen implementieren. Das HTML verwendest du so wie im Prototyp (ggfls. Pfade anpassen!) und bindest die gleichen Assets ein. Am Ende hast du eine lauffähige REDAXO-Website, deren Output mit dem Prototyp identisch ist.
 
+### Prototyp
+
 Falls du dein Frontend zukünftig direkt in REDAXO entwickeln möchtest, kannst du den Prototyp nun verwerfen. __Jedoch ist die Absicht dieses Projekts ausgerechnet die, dich davon zu überzeugen, Frontend grundsätzlich _außerhalb_ von REDAXO anhand des Prototyps zu entwickeln.__ Warum? Weil es effizienter und komfortabler ist, und weil es im Team ggfls. von Leuten übernommen werden kann, die sich ausschließlich auf Frontend-Entwicklung konzentrieren und keine REDAXO- und PHP-Erfahrung benötigen.
 
 Zudem funktioniert der Workflow ziemlich generisch. Du könntest ihn also in gleicher Form auch für andere Projekte verwenden, etwa im Kombi mit anderen CMS, für rein statische Websites oder Web Apps. ✌️
+
+### Production
+
+Um die Website produktionsfertig zu machen, aktivierst du `APP_ENV=production` und lässt Gulp durchlaufen. Dabei werden JavaScript und CSS minifiziert, Sourcemaps entfernt und Bilder komprimiert. In REDAXO musst du nichts weiter tun, denn alle Assets behalten ihre Pfade. Allerdings solltest du dir eine Lösung überlegen, das Caching zu kontrollieren, etwa mittels Timestamp-Parameter (Beispiel: `styles.css?v=1335939007`).
