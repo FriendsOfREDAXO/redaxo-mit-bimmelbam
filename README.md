@@ -1,5 +1,7 @@
 # REDAXO mit Gulp, Browserify, PostCSS und Bimmelbam
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/FriendsOfREDAXO/redaxo-mit-bimmelbam.svg)](https://greenkeeper.io/)
+
 Beispiel eines Frontend-Workflows zur Entwicklung einer REDAXO-Website.
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/assets/redaxo-mit-bimmelbam.jpg)
