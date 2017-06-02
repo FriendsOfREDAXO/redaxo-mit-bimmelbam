@@ -76,6 +76,6 @@ Zudem funktioniert der Workflow ziemlich generisch. Du könntest ihn also in gle
 
 Um die Website produktionsfertig zu machen, aktivierst du `APP_ENV=production` und lässt Gulp durchlaufen. Dabei werden JavaScript und CSS minifiziert, Sourcemaps entfernt und Bilder komprimiert. In REDAXO musst du nichts weiter tun, denn alle Assets behalten ihre Pfade. Allerdings solltest du dir eine Lösung überlegen, das Caching zu kontrollieren, etwa mittels Timestamp-Parameter (Beispiel: `styles.css?v=1335939007`, siehe auch diese [Lösung für REDAXO](https://github.com/redaxo/redaxo/pull/976/commits/e1013defced264ffd9f6c24993acdd14791869bf)).
 
-### Docker fürs Backend?
+### Docker :whale: fürs Backend?
 
 Der Frontend-Workflow ist komplett, so dass wir nun die Entwicklungsumgebung fürs Backend optimieren könnten. Zum Beispiel mit Docker, um ein einheitliches Setup fürs Team zu ermöglichen und unabhängig von der lokalen Systemumgebung des Computers werden: Bimmelbam und [REDAXO mit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker) lassen sich einfach kombinieren, indem beide Projektordner zusammengelegt werden. Zu beachten ist, dass unser REDAXO dann nicht mehr in `app/` (Bimmelbam) liegt, sondern in `html/` (Docker). Die Bimmelbam-Pfade müssen dementsprechend in der Konfiguration angepasst werden.
