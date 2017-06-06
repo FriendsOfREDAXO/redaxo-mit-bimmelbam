@@ -13,9 +13,8 @@ const task = (cb) => {
 
     modernizr.build(config.modernizr, (result) => {
         let dest = path.join(config.scripts.destinationFolder, '/modernizr.js');
-        let target = uglifyjs.minify(result, {
-            fromString: true
-        }).code; // minify in all environments
+        let options = {}; // see https://github.com/mishoo/UglifyJS2#minify-options
+        let target = uglifyjs.minify(result, options).code;
         let targetSize = humanSize(Buffer.byteLength(target, 'utf8'));
 
         writefile(dest, target, () => {
