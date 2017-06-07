@@ -1,3 +1,13 @@
+// set variables
+
+// bootstrap config will be imported later on from
+// node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
+
+// hint: bootstrap uses `!default` for any variable definition, which
+// allows you to define yours first, see
+// http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_
+
 $body-bg: #444;
 $text-color: rgba(255, 255, 255, 0.9);
 $link-color: #fff;
+$font-family-sans-serif: 'Roboto Condensed', sans-serif;

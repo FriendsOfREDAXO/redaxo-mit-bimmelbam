@@ -5,5 +5,8 @@
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "vendor/ie10-viewport-bug-workaround";
 
+// fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
 // components
 @import "components/*";
