@@ -41,6 +41,7 @@
     "lodash": "^4.17.2",
     "modernizr": "^3.5.0",
     "node-notifier": "^5.1.2",
+    "p-series": "^1.0.0",
     "require-dir": "^0.3.2",
     "uglify-js": "^3.0.15",
     "vinyl-buffer": "^1.0.0",
