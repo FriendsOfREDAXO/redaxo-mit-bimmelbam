@@ -31,6 +31,26 @@ const config = {
         ]
     },
 
+    // Copy
+    // copy assets from source to app
+    'copy': [
+        {
+            'title': 'SVGs',
+            'src': ['./source/templates/svg/*.svg'],
+            'dest': './app/assets/svg'
+        },
+        {
+            'title': 'Material Icons',
+            'src': ['./node_modules/material-design-icons/iconfont/*.{woff,woff2}'],
+            'dest': './app/assets/fonts'
+        },
+        {
+            'title': 'Bootstrap icons',
+            'src': ['./node_modules/bootstrap-sass/assets/fonts/bootstrap/*.{woff,woff2}'],
+            'dest': './app/assets/fonts/bootstrap'
+        }
+    ],
+
     // cssnano (minifies CSS)
     // http://cssnano.co/options/
     'cssnano': {
