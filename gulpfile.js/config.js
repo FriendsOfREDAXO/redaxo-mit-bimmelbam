@@ -7,21 +7,6 @@ const config = {
 
     // A-Z!
 
-    // Autoprefixer (adds vendor prefixes to rules by http://caniuse.com)
-    // https://github.com/postcss/autoprefixer
-    'autoprefixer': {
-        'browsers': [
-            'last 3 versions', // base support
-            'Chrome >= 21', // full flexbox support
-            'Edge >= 12',
-            'Explorer >= 10', // because <10 is shitty
-            'Firefox >= 28', // full flexbox support
-            'iOS >= 7.1', // full flexbox support
-            'Opera >= 15',
-            'Safari >= 6.1' // full flexbox support
-        ]
-    },
-
     // Browsersync
     // https://www.browsersync.io/docs/options
     'browserSync': {

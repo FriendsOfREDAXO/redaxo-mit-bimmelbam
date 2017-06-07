@@ -53,7 +53,7 @@ const task = (cb) => {
 
         // run postcss plugins
         .pipe(postcss([
-            autoprefixer(config.autoprefixer)
+            autoprefixer() // autoprefixer uses config from .browserslistrc
         ]))
 
         // stop error prevention
