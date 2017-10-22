@@ -117,7 +117,7 @@ const config = {
     // combines SVG files to into one with <symbol> elements (»SVG sprite«)
     'svg': {
         'sourceFiles': ['./source/svg/**/*.svg'],
-        'destinationFolder': './source/templates/svg',
+        'destinationFolder': './app/assets/svg',
         'watchFiles': ['./source/svg/**/*.svg'],
         'cleanFiles': ['./app/assets/svg/*.svg']
     },
