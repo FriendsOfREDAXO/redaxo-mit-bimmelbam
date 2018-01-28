@@ -1,12 +1,12 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const svgstore = require('gulp-svgstore');
 const svgmin = require('gulp-svgmin');
-const path = require('path');
 const size = require('gulp-size');
 const plumber = require('gulp-plumber');
 const count = require('gulp-count');
-const _ = require('lodash');
+const rename = require('gulp-rename');
 
 // load config
 const config = require('../config');
@@ -16,28 +16,37 @@ const task = () => gulp.src(config.svg.sourceFiles)
     // prevent pipe breaking caused by errors
     .pipe(plumber())
 
+    // minify
+    .pipe(svgmin())
+
+    // log
+    .pipe(count({
+        message: colors.white('SVG files processed: <%= counter %>'),
+        logger: (message) => log(message)
+    }))
+
+    // rename SVG (symbol)
+    .pipe(rename({
+            prefix: 'icon-'
+        }
+    ))
+
     // assemble one SVG
     .pipe(svgstore({
         inlineSvg: true
     }))
 
-    // minify
-    .pipe(svgmin({
-        plugins: [{
-            cleanupIDs: false,
-            removeUselessDefs: false,
-            addClassesToSVGElement: {
-                classNames: ['jabbathehutt'] // a huuuuuuge svg containing it all
-            }
-        }]
-    }))
+    // rename assembled SVG file
+    .pipe(rename({
+            basename: 'svg-sprite'
+        }
+    ))
 
     // stop error prevention
     .pipe(plumber.stop())
 
     // log
     .pipe(size({'title': 'SVGs'}))
-    .pipe(count(gutil.colors.white('SVG files processed: <%= counter %>')))
 
     // save
     .pipe(gulp.dest(config.svg.destinationFolder));
