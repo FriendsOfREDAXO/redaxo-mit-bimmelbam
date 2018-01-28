@@ -1,12 +1,12 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
+const through = require('through');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const nunjucks = require('gulp-nunjucks-html');
-const path = require('path');
 const browserSync = require('browser-sync');
 const notifier = require('node-notifier');
 const plumber = require('gulp-plumber');
 const count = require('gulp-count');
-const _ = require('lodash');
 
 // load config
 const config = require('../config');
@@ -30,7 +30,7 @@ const task = (cb) => {
             hasErrors = true;
 
             // throw error to console
-            gutil.log(gutil.colors.red.bold(err.name + ': ' + err.message));
+            log(colors.red.bold(err.name + ': ' + err.message));
 
             // throw notification
             notifier.notify({
@@ -45,7 +45,10 @@ const task = (cb) => {
         .pipe(plumber.stop())
 
         // log
-        .pipe(!hasErrors ? count(gutil.colors.white('HTML files generated from templates: <%= counter %>')) : gutil.noop())
+        .pipe(!hasErrors ? count({
+            message: colors.white('HTML files generated from templates: <%= counter %>'),
+            logger: (message) => log(message)
+        }) : through())
 
         // save
         .pipe(gulp.dest(config.templates.destinationFolder));

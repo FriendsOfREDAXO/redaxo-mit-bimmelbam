@@ -1,17 +1,18 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
+const through = require('through');
+const env = require('minimist')(process.argv.slice(2));
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const nano = require('gulp-cssnano');
-const path = require('path');
 const browserSync = require('browser-sync');
 const size = require('gulp-size');
 const plumber = require('gulp-plumber');
 const notifier = require('node-notifier');
-const _ = require('lodash');
 
 // load config
 const config = require('../config');
@@ -21,7 +22,7 @@ const task = (cb) => {
     return gulp.src(config.styles.sourceFiles)
 
         // init sourcemaps
-        .pipe(process.env.APP_ENV == 'development' ? sourcemaps.init() : gutil.noop())
+        .pipe(!env.production ? sourcemaps.init() : through())
 
         // prevent pipe breaking caused by errors
         .pipe(plumber())
@@ -37,7 +38,7 @@ const task = (cb) => {
             hasErrors = true;
 
             // throw error to console
-            gutil.log(gutil.colors.red.bold(err.name + ': ' + err.message));
+            log(colors.red.bold(err.name + ': ' + err.message));
 
             // throw notification
             notifier.notify({
@@ -60,14 +61,14 @@ const task = (cb) => {
         .pipe(plumber.stop())
 
         // compress (production)
-        .pipe(process.env.APP_ENV == 'production' ? nano(config.cssnano) : gutil.noop())
+        .pipe(env.production ? nano(config.cssnano) : through())
 
         // log
-        .pipe(!hasErrors ? gutil.noop(gutil.log(gutil.colors.white('CSS files generated:'))) : gutil.noop())
+        .pipe(!hasErrors ? through(log(colors.white('CSS files generated:'))) : through())
         .pipe(size({title: 'Styles:', showFiles: true}))
 
         // write sourcemaps (development)
-        .pipe(process.env.APP_ENV == 'development' ? sourcemaps.write('.') : gutil.noop())
+        .pipe(!env.production ? sourcemaps.write('.') : through())
 
         // save
         .pipe(gulp.dest(config.styles.destinationFolder))

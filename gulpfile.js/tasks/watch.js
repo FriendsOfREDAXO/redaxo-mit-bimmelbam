@@ -1,5 +1,6 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const gulpSequence = require('gulp-sequence');
 const notifier = require('node-notifier');
 const _ = require('lodash');
@@ -24,7 +25,7 @@ const task = () => {
     });
 
     // log info about frontend demo
-    gutil.log(gutil.colors.white('Find frontend demo at: ' + gutil.colors.magenta('http://localhost:' + config.browserSync.port + '/demo')));
+    log(colors.white('Find frontend demo at: ' + colors.magenta('http://localhost:' + config.browserSync.port + '/demo')));
 
     // throw notification
     notifier.notify({

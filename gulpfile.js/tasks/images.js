@@ -1,30 +1,33 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
-const path = require('path');
+const env = require('minimist')(process.argv.slice(2));
+const through = require('through');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const imagemin = require('gulp-imagemin');
-const pngquant = require('imagemin-pngquant');
 const count = require('gulp-count');
-const _ = require('lodash');
 
 // load config
 const config = require('../config');
 
 const task = () => gulp.src(config.images.sourceFiles)
 
-    // minify (production)
-    .pipe(process.env.APP_ENV == 'production' ? imagemin([
+// minify (production)
+    .pipe(env.production ? imagemin([
         // plugins (https://www.npmjs.com/browse/keyword/imageminplugin)
         imagemin.gifsicle(),
         imagemin.jpegtran(),
-        pngquant(),
+        imagemin.optipng(),
         imagemin.svgo()
     ], {
         // options
         verbose: true
-    }) : gutil.noop())
+    }) : through())
 
     // log
-    .pipe(count(gutil.colors.white('Image files processed: <%= counter %>')))
+    .pipe(count({
+        message: colors.white('Image files processed: <%= counter %>'),
+        logger: (message) => log(message)
+    }))
 
     // save
     .pipe(gulp.dest(config.images.destinationFolder));

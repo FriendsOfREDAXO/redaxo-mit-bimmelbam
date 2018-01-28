@@ -1,5 +1,8 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
+const env = require('minimist')(process.argv.slice(2));
+const through = require('through');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const browserify = require('browserify');
 const watchify = require('watchify');
 const babelify = require('babelify');
@@ -29,7 +32,7 @@ b.transform("babelify", {
 
 // watch for events
 b.on('update', bundle);
-b.on('log', gutil.log);
+b.on('log', log);
 
 // define bundle
 function bundle() {
@@ -37,7 +40,7 @@ function bundle() {
         .on('error', function (err) {
 
             // throw error to console
-            gutil.log(gutil.colors.red.bold(err.name + ': ' + err.message));
+            log(colors.red.bold(err.name + ': ' + err.message));
 
             // throw notification
             notifier.notify({
@@ -50,8 +53,8 @@ function bundle() {
         .pipe(source('script.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(process.env.APP_ENV == 'production' ? uglify() : gutil.noop())
-        .pipe(gutil.noop(gutil.log(gutil.colors.white('JS files generated:'))))
+        .pipe(env.production ? uglify() : through())
+        .pipe(through((log(colors.white('JS files generated:')))))
         .pipe(size({title: 'Scripts:', showFiles: true}))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.scripts.destinationFolder))

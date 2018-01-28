@@ -1,5 +1,6 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const path = require('path');
 const uglifyjs = require('uglify-js');
 const modernizr = require("modernizr");
@@ -18,7 +19,7 @@ const task = (cb) => {
         let targetSize = humanSize(Buffer.byteLength(target, 'utf8'));
 
         writefile(dest, target, () => {
-            gutil.log(gutil.colors.white('Build a custom modernizr for you at ' + gutil.colors.magenta(dest + ', ' + targetSize)));
+            log(colors.white('Build a custom modernizr for you at ' + colors.magenta(dest + ', ' + targetSize)));
             return cb();
         });
     });

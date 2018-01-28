@@ -1,12 +1,13 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
+const env = require('minimist')(process.argv.slice(2));
+const colors = require('ansi-colors');
 const asciify = require('asciify');
 
 const task = (cb) => {
 
-    if (process.env.APP_ENV == 'production') {
+    if (env.production) {
 
-        console.log(gutil.colors.white('\n  Production'));
+        console.log(colors.white('\n  Production'));
 
         // bring out some ASCII art
         asciify('REDAXO', {
@@ -19,7 +20,7 @@ const task = (cb) => {
     }
     else {
 
-        console.log(gutil.colors.white('\n  Development'));
+        console.log(colors.white('\n  Development'));
 
         // bring out some ASCII art
         asciify('BIMMELBAM', {

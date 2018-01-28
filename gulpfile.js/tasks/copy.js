@@ -1,5 +1,6 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const copy = require('cpy');
 const pSeries = require('p-series');
 const _ = require('lodash');
@@ -14,7 +15,7 @@ const task = (cb) => {
     _.forEach(config.copy, function (v) {
         tasks.push(() => copy(v.src, v.dest, {}).then((res) => {
             if (res.length > 0) {
-                gutil.log(gutil.colors.white('Copied ' + v.title + ': ' + gutil.colors.magenta(res.length)));
+                log(colors.white('Copied ' + v.title + ': ' + colors.magenta(res.length)));
             }
         }));
     });
