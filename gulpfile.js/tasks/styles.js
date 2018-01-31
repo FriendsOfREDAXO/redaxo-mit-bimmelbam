@@ -38,7 +38,7 @@ const task = (cb) => {
             hasErrors = true;
 
             // throw error to console
-            log(colors.red.bold(err.name + ': ' + err.message));
+            log(colors.bold(colors.red(err.name + ': ' + err.message)));
 
             // throw notification
             notifier.notify({
