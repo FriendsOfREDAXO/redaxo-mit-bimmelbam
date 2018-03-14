@@ -13,7 +13,10 @@ const task = (cb) => {
     let tasks = [];
     // loop through copy tasks (see config) and fill an array with results from copy functions (promises!)
     _.forEach(config.copy, function (v) {
-        tasks.push(() => copy(v.src, v.dest, {}).then((res) => {
+        tasks.push(() => copy(v.src, v.dest, {
+            parents: true,
+            nodir: true
+        }).then((res) => {
             if (res.length > 0) {
                 log(colors.white('Copied ' + v.title + ': ' + colors.magenta(res.length)));
             }
