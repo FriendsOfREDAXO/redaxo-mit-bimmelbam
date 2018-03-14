@@ -36,12 +36,6 @@ const config = {
     // watch out: path for destinationFolder is built relative from sourceFolder!
     'copy': [
         {
-            'title': 'test',
-            'sourceFolder': './source/test',
-            'sourceFiles': '**/*',
-            'destinationFolder': '../../app/test'
-        },
-        {
             'title': 'SVGs',
             'sourceFolder': './source/templates/svg',
             'sourceFiles': ['*.svg'],
