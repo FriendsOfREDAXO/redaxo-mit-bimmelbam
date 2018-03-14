@@ -13,7 +13,8 @@ const task = (cb) => {
     let tasks = [];
     // loop through copy tasks (see config) and fill an array with results from copy functions (promises!)
     _.forEach(config.copy, function (v) {
-        tasks.push(() => copy(v.src, v.dest, {
+        tasks.push(() => copy(v.sourceFiles, v.destinationFolder, {
+            cwd: v.sourceFolder,
             parents: true,
             nodir: true
         }).then((res) => {
