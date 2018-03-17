@@ -44,6 +44,7 @@
     "node-notifier": "^5.2.1",
     "p-series": "^1.0.0",
     "require-dir": "^0.3.2",
+    "through": "^2.3.8",
     "uglify-js": "^3.3.9",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
