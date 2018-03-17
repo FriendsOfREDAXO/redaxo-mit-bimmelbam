@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const env = require('minimist')(process.argv.slice(2));
 const through = require('through');
 const log = require('fancy-log');
 const colors = require('ansi-colors');
@@ -53,7 +52,7 @@ function bundle() {
         .pipe(source('script.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(env.production ? uglify() : through())
+        .pipe(process.env.APP_ENV === 'production' ? uglify() : through())
         .pipe(through((log(colors.white('JS files generated:')))))
         .pipe(size({title: 'Scripts:', showFiles: true}))
         .pipe(sourcemaps.write('./'))

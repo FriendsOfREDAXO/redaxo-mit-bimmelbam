@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const through = require('through');
-const env = require('minimist')(process.argv.slice(2));
 const log = require('fancy-log');
 const colors = require('ansi-colors');
 const sass = require('gulp-sass');
@@ -22,7 +21,7 @@ const task = (cb) => {
     return gulp.src(config.styles.sourceFiles)
 
         // init sourcemaps
-        .pipe(!env.production ? sourcemaps.init() : through())
+        .pipe(process.env.APP_ENV !== 'production' ? sourcemaps.init() : through())
 
         // prevent pipe breaking caused by errors
         .pipe(plumber())
@@ -61,14 +60,14 @@ const task = (cb) => {
         .pipe(plumber.stop())
 
         // compress (production)
-        .pipe(env.production ? nano(config.cssnano) : through())
+        .pipe(process.env.APP_ENV === 'production' ? nano(config.cssnano) : through())
 
         // log
         .pipe(!hasErrors ? through(log(colors.white('CSS files generated:'))) : through())
         .pipe(size({title: 'Styles:', showFiles: true}))
 
         // write sourcemaps (development)
-        .pipe(!env.production ? sourcemaps.write('.') : through())
+        .pipe(process.env.APP_ENV !== 'production' ? sourcemaps.write('.') : through())
 
         // save
         .pipe(gulp.dest(config.styles.destinationFolder))

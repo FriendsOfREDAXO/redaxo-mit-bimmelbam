@@ -39,7 +39,6 @@
     "gulp-uglify": "^3.0.0",
     "human-size": "^1.1.0",
     "lodash": "^4.17.2",
-    "minimist": "^1.2.0",
     "modernizr": "^3.5.0",
     "node-notifier": "^5.2.1",
     "p-series": "^1.0.0",

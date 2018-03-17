@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const env = require('minimist')(process.argv.slice(2));
 const through = require('through');
 const log = require('fancy-log');
 const colors = require('ansi-colors');
@@ -12,7 +11,7 @@ const config = require('../config');
 const task = () => gulp.src(config.images.sourceFiles)
 
 // minify (production)
-    .pipe(env.production ? imagemin([
+    .pipe(process.env.APP_ENV === 'production' ? imagemin([
         // plugins (https://www.npmjs.com/browse/keyword/imageminplugin)
         imagemin.gifsicle(),
         imagemin.jpegtran(),
