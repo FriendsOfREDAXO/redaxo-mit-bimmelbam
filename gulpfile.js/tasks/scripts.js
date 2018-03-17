@@ -32,6 +32,7 @@ b.transform("babelify", {
 // watch for events
 b.on('update', bundle);
 b.on('log', log);
+b.on('time', () => b.close());
 
 // define bundle
 function bundle() {
