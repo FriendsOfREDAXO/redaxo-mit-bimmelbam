@@ -1,11 +1,10 @@
 const gulp = require('gulp');
-const env = require('minimist')(process.argv.slice(2));
 const colors = require('ansi-colors');
 const asciify = require('asciify');
 
 const task = (cb) => {
 
-    if (env.production) {
+    if (process.env.APP_ENV === 'production') {
 
         console.log(colors.white('\n  Production'));
 
