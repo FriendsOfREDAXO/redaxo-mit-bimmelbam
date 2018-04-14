@@ -104,7 +104,7 @@ Wenn du mehrere Docker-Projekte verwendest, musst du noch beachten, dass alle di
 
 ### Verwendung
 
-Falls Docker für dich neu ist: Gar kein Problem, es gibt eine [Anleitung für Einsteiger\_innen](#anleitung-für-einsteiger_innen-rocket). :rocket:
+Falls Docker für dich neu ist: Gar kein Problem, es gibt eine [Anleitung für Einsteiger\_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket). :rocket:
 
 __Docker-Container starten:__
 
