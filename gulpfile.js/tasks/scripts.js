@@ -26,7 +26,7 @@ const b = browserify({
 
 // add transforms
 b.transform("babelify", {
-    presets: ["es2015"]
+    presets: ["env"]
 });
 
 // watch for events
