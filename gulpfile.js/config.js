@@ -33,25 +33,24 @@ const config = {
 
     // Copy
     // copy assets from source to app
-    // watch out: path for destinationFolder is built relative from sourceFolder!
     'copy': [
         {
             'title': 'SVGs',
             'sourceFolder': './source/templates/svg',
             'sourceFiles': ['*.svg'],
-            'destinationFolder': '../../../app/assets/svg'
+            'destinationFolder': './app/assets/svg'
         },
         {
             'title': 'Material Icons',
             'sourceFolder': './node_modules/material-design-icons/iconfont',
             'sourceFiles': ['*.{woff,woff2}'],
-            'destinationFolder': '../../../app/assets/fonts'
+            'destinationFolder': './app/assets/fonts'
         },
         {
             'title': 'Bootstrap icons',
             'sourceFolder': './node_modules/bootstrap-sass/assets/fonts/bootstrap',
             'sourceFiles': ['*.{woff,woff2}'],
-            'destinationFolder': '../../../../../app/assets/fonts/bootstrap'
+            'destinationFolder': './app/assets/fonts/bootstrap'
         }
     ],
 
