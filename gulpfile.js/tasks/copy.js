@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const log = require('fancy-log');
 const colors = require('ansi-colors');
 const copy = require('cpy');
+const path = require('path');
 const pSeries = require('p-series');
 const _ = require('lodash');
 
@@ -13,7 +14,7 @@ const task = (cb) => {
     let tasks = [];
     // loop through copy tasks (see config) and fill an array with results from copy functions (promises!)
     _.forEach(config.copy, function (v) {
-        tasks.push(() => copy(v.sourceFiles, v.destinationFolder, {
+        tasks.push(() => copy(v.sourceFiles, path.resolve(v.destinationFolder), {
             cwd: v.sourceFolder,
             parents: true,
             nodir: true
