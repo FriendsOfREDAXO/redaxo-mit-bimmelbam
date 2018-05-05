@@ -11,7 +11,7 @@ const count = require('gulp-count');
 // load config
 const config = require('../config');
 
-const task = (cb) => {
+const task = () => {
     let hasErrors = false; // init
 
     return gulp.src(config.templates.sourceFiles)
@@ -55,5 +55,5 @@ const task = (cb) => {
 };
 
 gulp.task('templates', task);
-gulp.task('templates-reload', ['templates'], browserSync.reload); // watch task
+gulp.task('templates-reload', gulp.series('templates', browserSync.reload)); // watch task
 module.exports = task;

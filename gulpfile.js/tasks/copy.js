@@ -3,31 +3,28 @@ const log = require('fancy-log');
 const colors = require('ansi-colors');
 const copy = require('cpy');
 const path = require('path');
-const pSeries = require('p-series');
-const _ = require('lodash');
 
 // load config
 const config = require('../config');
 
-const task = (cb) => {
-
-    let tasks = [];
-    // loop through copy tasks (see config) and fill an array with results from copy functions (promises!)
-    _.forEach(config.copy, function (v) {
-        tasks.push(() => copy(v.sourceFiles, path.resolve(v.destinationFolder), {
-            cwd: v.sourceFolder,
-            parents: true,
-            nodir: true
-        }).then((res) => {
-            if (res.length > 0) {
-                log(colors.white('Copied ' + v.title + ': ' + colors.magenta(res.length)));
-            }
-        }));
+let tasks = [];
+// loop through copy tasks (see config) and fill an array with results from copy functions (promises!)
+for (let v of config.copy) {
+    const copyTask = () => copy(v.sourceFiles, path.resolve(v.destinationFolder), {
+        cwd: v.sourceFolder,
+        parents: true,
+        nodir: true
+    }).then((res) => {
+        if (res.length > 0) {
+            log(colors.white('Copied ' + v.title + ': ' + colors.magenta(res.length)));
+        }
     });
 
-    // run tasks in series, then use callback to finish gulp copy task
-    pSeries(tasks).then(result => cb());
-};
+    copyTask.displayName = 'copy:' + v.title;
+    tasks.push(copyTask);
+}
+
+const task = gulp.series(tasks);
 
 gulp.task('copy', task);
 module.exports = task;

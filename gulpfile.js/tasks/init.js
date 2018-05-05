@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const colors = require('ansi-colors');
 const asciify = require('asciify');
 
-const task = (cb) => {
+const task = (done) => {
 
     if (process.env.APP_ENV === 'production') {
 
@@ -14,7 +14,7 @@ const task = (cb) => {
             color: 'red'
         }, (err, res) => {
             console.log(res);
-            cb();
+            done();
         });
     }
     else {
@@ -27,7 +27,7 @@ const task = (cb) => {
             color: 'blue'
         }, (err, res) => {
             console.log(res);
-            cb();
+            done();
         });
     }
 };

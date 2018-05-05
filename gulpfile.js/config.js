@@ -129,7 +129,6 @@ const config = {
     // watches for file changes and fires up related tasks
     'watch': [
         {'images': ['images']},
-        {'scripts': ['scripts']},
         {'styles': ['styles']},
         {'svg': ['svg']},
         {'templates': ['templates-reload']}
