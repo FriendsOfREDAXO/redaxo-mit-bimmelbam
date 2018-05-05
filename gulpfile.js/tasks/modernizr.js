@@ -10,7 +10,7 @@ const humanSize = require('human-size');
 // load config
 const config = require('../config');
 
-const task = (cb) => {
+const task = (done) => {
 
     modernizr.build(config.modernizr, (result) => {
         let dest = path.join(config.scripts.destinationFolder, '/modernizr.js');
@@ -20,7 +20,7 @@ const task = (cb) => {
 
         writefile(dest, target, () => {
             log(colors.white('Build a custom modernizr for you at ' + colors.magenta(dest + ', ' + targetSize)));
-            return cb();
+            return done();
         });
     });
 };

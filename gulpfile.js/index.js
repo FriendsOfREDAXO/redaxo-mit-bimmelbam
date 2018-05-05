@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const gulpSequence = require('gulp-sequence');
 const requireDir = require('require-dir');
 
 // load ENV
@@ -10,8 +9,8 @@ require('dotenv').load();
 requireDir('./tasks', { recurse: true });
 
 // define sequences
-const tasks = [];
-tasks.development = gulpSequence(
+const tasks = {};
+tasks.development = gulp.series(
     'init',
     'clean',
     'modernizr',
@@ -24,16 +23,19 @@ tasks.development = gulpSequence(
     'watch',
     'browserSync'
 );
-tasks.production = gulpSequence(
+tasks.production = gulp.series(
     'init',
     'clean',
-    'modernizr',
-    'styles',
-    'scripts',
-    'images',
-    'svg',
-    'templates',
-    'copy'
+    // run tasks in parallel because production mode can be much slower
+    gulp.parallel(
+        'modernizr',
+        'styles',
+        'scripts',
+        'images',
+        'svg',
+        'templates',
+        'copy'
+    )
 );
 
 // define tasks
