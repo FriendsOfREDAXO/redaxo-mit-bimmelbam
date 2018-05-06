@@ -51,6 +51,6 @@
     "nunjucks": "nunjucks/browser/nunjucks-slim"
   },
   "engines": {
-    "node": ">=6.9"
+    "node": ">=6.9 <9.0"
   }
 }
