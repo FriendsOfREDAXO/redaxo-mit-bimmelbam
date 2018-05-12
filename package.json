@@ -17,7 +17,7 @@
     "babelify": "^8.0.0",
     "browser-sync": "^2.24.4",
     "browserify": "^16.2.0",
-    "cpy": "^6.0.0",
+    "cpy": "^7.0.0",
     "del": "^3.0.0",
     "dotenv": "^5.0.1",
     "fancy-log": "^1.3.2",
@@ -51,6 +51,6 @@
     "nunjucks": "nunjucks/browser/nunjucks-slim"
   },
   "engines": {
-    "node": ">=6.9 <9.0"
+    "node": ">=6.9"
   }
 }
