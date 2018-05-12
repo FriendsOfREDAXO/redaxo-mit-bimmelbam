@@ -131,7 +131,7 @@ const config = {
         {'images': ['images']},
         {'styles': ['styles']},
         {'svg': ['svg']},
-        {'templates': ['templates-reload']}
+        {'templates': ['templates']}
     ]
 };
 
