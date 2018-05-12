@@ -51,9 +51,11 @@ const task = () => {
         }) : through())
 
         // save
-        .pipe(gulp.dest(config.templates.destinationFolder));
+        .pipe(gulp.dest(config.templates.destinationFolder))
+
+        // reload browser
+        .pipe(browserSync.stream());
 };
 
 gulp.task('templates', task);
-gulp.task('templates-reload', gulp.series('templates', browserSync.reload)); // watch task
 module.exports = task;
