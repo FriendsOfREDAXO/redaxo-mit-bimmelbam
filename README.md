@@ -137,3 +137,4 @@ Ganz viele Informationen findest du im Paket [REDAXO mit Docker](https://github.
 * [Anleitung für Einsteiger_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket) 🚀
 
 Falls du Fragen hast oder Hilfe benötigst, kontakte uns jederzeit gerne im Slack-Chat! Eine Einladung bekommst du hier: https://redaxo.org/slack/
+
