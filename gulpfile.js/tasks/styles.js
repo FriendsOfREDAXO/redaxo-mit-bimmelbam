@@ -16,7 +16,7 @@ const notifier = require('node-notifier');
 // load config
 const config = require('../config');
 
-const task = (cb) => {
+const task = (done) => {
     let hasErrors = false; // init
     return gulp.src(config.styles.sourceFiles)
 
@@ -48,7 +48,7 @@ const task = (cb) => {
             });
 
             // continue gulp task
-            cb();
+            done();
         })
 
         // run postcss plugins

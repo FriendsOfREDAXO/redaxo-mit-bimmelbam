@@ -15,4 +15,5 @@ node_modules
 # IDE config, brauchen wir nicht in diesem Projekt
 .idea
 
-
+# Datenbank (Docker)
+db
