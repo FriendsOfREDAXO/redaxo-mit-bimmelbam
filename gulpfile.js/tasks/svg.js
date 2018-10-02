@@ -17,7 +17,11 @@ const task = () => gulp.src(config.svg.sourceFiles)
     .pipe(plumber())
 
     // minify
-    .pipe(svgmin())
+    .pipe(svgmin({
+        plugins: [{
+            removeViewBox: false
+        }]
+    }))
 
     // log
     .pipe(count({

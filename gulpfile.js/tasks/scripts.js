@@ -26,7 +26,7 @@ const b = browserify({
 
 // add transforms
 b.transform("babelify", {
-    presets: ["env"]
+    presets: ["@babel/env"]
 });
 
 // watch for events
