@@ -1,11 +1,11 @@
 # Browsers that we support
-# see https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released
+# see https://github.com/browserslist/browserslist
+# link: https://browserl.ist/?q=defaults%2C+Chrome+%3E%3D+21%2C+Edge+%3E%3D+12%2C+Firefox+%3E%3D+28%2C+iOS+%3E%3D+7.1%2C+Opera+%3E%3D+15%2C+Safari+%3E%3D+6.1
 
-last 3 versions  # base support
+defaults         # base support
 
 Chrome >= 21     # full flexbox support
 Edge >= 12
-Explorer >= 10   # because <10 is shitty!
 Firefox >= 28    # full flexbox support
 iOS >= 7.1       # full flexbox support
 Opera >= 15
