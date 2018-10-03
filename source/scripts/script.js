@@ -1,17 +1,19 @@
 // import jQuery
 const $ = require('jquery');
 
-// Bootstrap 3 doesn’t come with CommonJS pattern and therefore requires a global jQuery
-window.$ = window.jQuery = $;
-
-// import from our scripts folder
-require('./ie10-viewport-bug-workaround/ie10-viewport-bug-workaround');
-
 // import node modules
-require('bootstrap-sass/assets/javascripts/bootstrap/carousel');
-require('bootstrap-sass/assets/javascripts/bootstrap/transition');
+// see https://getbootstrap.com/docs/4.1/getting-started/javascript/
+require('popper.js');
+require('bootstrap/js/dist/util');
+require('bootstrap/js/dist/carousel');
+require('bootstrap/js/dist/tooltip');
 
 // on document ready
 $(function() {
+
+    // enable tooltips
+    $('[data-toggle="tooltip"]').tooltip();
+
+    // include demo module
     require('./demo-module/demo-module');
 });

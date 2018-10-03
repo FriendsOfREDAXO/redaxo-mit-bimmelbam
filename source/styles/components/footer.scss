@@ -1,12 +1,12 @@
 .footer {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1rem;
   
   p {
     color: rgba(255, 255, 255, 0.6);
   }
 
-  @media (min-width: $screen-sm-min) {
+  @include media-breakpoint-up(sm) {
     position: fixed;
     top: auto;
     bottom: 2vh;

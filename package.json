@@ -3,10 +3,11 @@
   "name": "redaxo-mit-bimmelbam",
   "version": "1.0.0",
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap": "^4.1.3",
     "jquery": "^3.3.1",
     "material-design-icons": "^3.0.1",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.0",
+    "popper.js": "^1.14.4"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
