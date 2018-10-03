@@ -1,7 +1,7 @@
 // Header. Leider kein BEM, deshalb ziemlich chaotisch. ¯\_(ツ)_/¯
 
 .header {
-  padding: 20px 0 0 0;
+  padding: 20px 0;
   text-align: center;
 }
 
@@ -13,39 +13,48 @@
   margin-bottom: 10px;
 }
 
-.header-nav > li {
+.header-nav>li {
   display: inline-block;
 }
 
-.header-nav > li + li {
+.header-nav>li+li {
   margin-left: 20px;
 }
 
-.header-nav > li > a {
+.header-nav>li>a {
   padding-right: 0;
   padding-left: 0;
   font-size: 16px;
   font-weight: bold;
-  color: #fff; /* IE8 proofing */
+  color: #fff;
+  /* IE8 proofing */
   color: rgba(255, 255, 255, 0.8);
   border-bottom: 2px solid transparent;
 }
 
-.header-nav > li > a:hover,
-.header-nav > li > a:focus {
+.header-nav>li>a:hover,
+.header-nav>li>a:focus {
   background-color: transparent;
   border-bottom-color: #a9a9a9;
   border-bottom-color: rgba(255, 255, 255, .25);
+  text-decoration: none;
 }
 
-.header-nav > .active > a,
-.header-nav > .active > a:hover,
-.header-nav > .active > a:focus {
+.header-nav>.active>a,
+.header-nav>.active>a:hover,
+.header-nav>.active>a:focus {
   color: #fff;
   border-bottom-color: #fff;
 }
 
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-down(xs) {
+
+  .header-nav {
+    justify-content: center;
+  }
+}
+
+@include media-breakpoint-up(sm) {
 
   .header {
     position: fixed;
@@ -54,11 +63,13 @@
     right: 0;
     z-index: 100;
   }
+
   .header-brand {
     float: left;
     width: 140px;
     height: 140px;
   }
+
   .header-nav {
     float: right;
   }

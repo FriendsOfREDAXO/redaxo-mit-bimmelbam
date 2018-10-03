@@ -2,8 +2,7 @@
 @import "_config/bootstrap";
 
 // vendor
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "vendor/ie10-viewport-bug-workaround";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 // fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
