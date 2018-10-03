@@ -7,6 +7,7 @@ const sassGlob = require('gulp-sass-glob');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const customProperties = require('postcss-custom-properties');
 const nano = require('gulp-cssnano');
 const browserSync = require('browser-sync');
 const size = require('gulp-size');
@@ -53,6 +54,7 @@ const task = (done) => {
 
         // run postcss plugins
         .pipe(postcss([
+            customProperties(),
             autoprefixer() // autoprefixer uses config from .browserslistrc
         ]))
 

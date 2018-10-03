@@ -76,6 +76,7 @@ const config = {
     'modernizr': {
         'feature-detects': [
             'css/animations',
+            'css/cssgrid',
             'css/filters',
             'css/flexbox',
             'css/pointerevents',

@@ -40,6 +40,7 @@
     "human-size": "^1.1.0",
     "modernizr": "^3.5.0",
     "node-notifier": "^5.2.1",
+    "postcss-custom-properties": "^8.0.8",
     "require-dir": "^1.0.0",
     "through": "^2.3.8",
     "uglify-js": "^3.3.23",
