@@ -45,12 +45,6 @@ const config = {
             'sourceFolder': './node_modules/material-design-icons/iconfont',
             'sourceFiles': ['*.{woff,woff2}'],
             'destinationFolder': './app/assets/fonts'
-        },
-        {
-            'title': 'Bootstrap icons',
-            'sourceFolder': './node_modules/bootstrap-sass/assets/fonts/bootstrap',
-            'sourceFiles': ['*.{woff,woff2}'],
-            'destinationFolder': './app/assets/fonts/bootstrap'
         }
     ],
 
