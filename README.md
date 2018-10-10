@@ -15,8 +15,8 @@ Example of a front-end workflow for developing a REDAXO website.
 
 ## Components and functions
 
-* [Yarn](https://yarnpkg.com) as __package manager__
-* [Gulp](http://gulpjs.com) as __task runner__
+* [Yarn](https://yarnpkg.com) as a __package manager__
+* [Gulp](http://gulpjs.com) as a __task runner__
 * [Sass](http://sass-lang.com) and [PostCSS](http://postcss.org) for __CSS__ (with [Autoprefixer](http://autoprefixer.github.io), [cssnano](http://cssnano.co) and Bimmelbam)
 * ES6 with [Babel](http://babeljs.io) and [Browserify](http://browserify.org) for beautiful __JavaScript__
 * [Nunjucks](https://mozilla.github.io/nunjucks/) __Templates__ (for the prototype, but could also be used for JavaScript components)
