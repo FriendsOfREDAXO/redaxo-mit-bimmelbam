@@ -1,4 +1,4 @@
-# REDAXO whit Gulp, Browserify, PostCSS and Bimmelbam
+# REDAXO with Gulp, Browserify, PostCSS and Bimmelbam
 
 Example of a front-end workflow for developing a REDAXO website.
 
