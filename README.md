@@ -17,8 +17,8 @@ Example of a front-end workflow for developing a REDAXO website.
 
 * [Yarn](https://yarnpkg.com) as __package manager__
 * [Gulp](http://gulpjs.com) as __task runner__
-* [Sass](http://sass-lang.com) and [PostCSS](http://postcss.org) for __CSS__ (whit [Autoprefixer](http://autoprefixer.github.io), [cssnano](http://cssnano.co) and Bimmelbam)
-* ES6 whit [Babel](http://babeljs.io) and [Browserify](http://browserify.org) for beautiful __JavaScript__
+* [Sass](http://sass-lang.com) and [PostCSS](http://postcss.org) for __CSS__ (with [Autoprefixer](http://autoprefixer.github.io), [cssnano](http://cssnano.co) and Bimmelbam)
+* ES6 with [Babel](http://babeljs.io) and [Browserify](http://browserify.org) for beautiful __JavaScript__
 * [Nunjucks](https://mozilla.github.io/nunjucks/) __Templates__ (for the prototype, but could also be used for JavaScript components)
 * ein konfigurierbarer [Modernizr](https://modernizr.com) (because it works)
 * __Bilder__ be minified
@@ -42,7 +42,7 @@ _Attention, several hundred megabytes of data are coming through the line!_
 
         $ yarn
 
-4. __Gulp__, if its not installed, you can install it whit Yarn global:
+4. __Gulp__, if its not installed, you can install it with Yarn global:
 
         $ yarn global add gulp-cli
 
@@ -84,7 +84,7 @@ To get the site ready for production, turn on `APP_ENV = production` and let go 
 
 The front-end workflow is complete, so we can now optimize the development environment for the backend. For example with Docker, to enable a consistent setup for the team and to be independent of the local system environment of the computer.
 
-In addition to the front-end Bimmelbam, this package also includes a __simplified version of the package [REDAXO whit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)__. The associated files and folders are:
+In addition to the front-end Bimmelbam, this package also includes a __simplified version of the package [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)__. The associated files and folders are:
 
     db/
     docker/
@@ -118,13 +118,13 @@ __REDAXO in the Browser:__
 
 :point_right: _We still use the port 3000 to call in the browser, as defined in Bimmelbam (see [config.js](https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/blob/d32f63df232f5273fd4b967a76e4cea5e90321fd/gulpfile.js/config.js#L14)). Bimmelbam uses a proxy pointing to port 20080, where Docker provides Apache. Do not let that confuse you._
 
-### Differences between the setup in [REDAXO whit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)
+### Differences between the setup in [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)
 
-The Docker setup in this package is less complicated to knit than the setup in the _large package_ »REDAXO whit Docker«. Hier soll Docker lediglich eine Serverumgebung bereitstellen und verzichtet auf zusätzliche Features. Dies sind die Unterschiede:
+The Docker setup in this package is less complicated to knit than the setup in the _large package_ »REDAXO with Docker«. Hier soll Docker lediglich eine Serverumgebung bereitstellen und verzichtet auf zusätzliche Features. Dies sind die Unterschiede:
 
 1. It does not automatically install a fresh REDAXO.
 2. It also does not install demo sites.
-3. There is no [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#mailhog-verwenden) to send mails whit REDAXO
+3. There is no [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#mailhog-verwenden) to send mails with REDAXO
 4. Access via HTTPS is not configured.
 5. The volume for the webroot is the folder `app/`, in the other package it is `html/`.
 
@@ -132,7 +132,7 @@ If you prefer to work with the large Docker setup here in Bimmelbam, you can eas
 
 ### Further information, configuration and customization
 
-You will find a lot of information in the package [REDAXO whit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker), and also to this Topics:
+You will find a lot of information in the package [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker), and also to this Topics:
 
 * [Adjustments for your projects](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anpassungen-für-deine-projekte)
 * [Configuration and tips](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#konfiguration-und-tipps)
