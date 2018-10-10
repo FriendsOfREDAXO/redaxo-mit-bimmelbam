@@ -1,3 +1,5 @@
+<p align="right">🌎 <a href="https://github.com/crydotsnake/redaxo-mit-bimmelbam/blob/master/README_de_.md">German</a></p>
+
 # REDAXO with Gulp, Browserify, PostCSS and Bimmelbam
 
 Example of a front-end workflow for developing a REDAXO website.
