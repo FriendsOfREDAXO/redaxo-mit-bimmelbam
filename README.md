@@ -1,4 +1,4 @@
-<p align="right">🌎 <a href="https://github.com/crydotsnake/redaxo-mit-bimmelbam/blob/master/README.de.md">German</a></p>
+<p align="right">🌎 <a href="https://github.com/friendsofredaxo/redaxo-mit-bimmelbam/blob/master/README.de.md">German</a></p>
 
 # REDAXO with Gulp, Browserify, PostCSS and Bimmelbam
 
@@ -8,22 +8,22 @@ Example of a front-end workflow for developing a REDAXO website.
 
 ## Idea
 
-* A __generic frontend workflow__ that does not necessarily require REDAXO, but works in the other context (static website, other CMS, webapp).
-* REDAXO and a static front-end prototype access the same assets__ (CSS, JS, media, ...).
-* At the __Prototype__ the complete frontend development takes place, the implementation for REDAXO can be done independently (useful when working in a team).
-* Switching between __Develop and Production mode__ takes place outside of REDAXO, and there is no need to intervene in templates or modules.
+* A __generic frontend workflow__ that does not necessarily require REDAXO, but works in several contexts (static website, different CMS, web app).
+* REDAXO and a static front-end prototype share all assets__ (CSS, JS, media, ...).
+* The prototype is used for the complete frontend development. The REDAXO implementation can be done separately (useful when working in a team).
+* Switching between develop and production mode takes place outside of REDAXO, and there is no need to modifiy templates or modules.
 
-## Components and functions
+## Components and features
 
 * [Yarn](https://yarnpkg.com) as a __package manager__
 * [Gulp](http://gulpjs.com) as a __task runner__
 * [Sass](http://sass-lang.com) and [PostCSS](http://postcss.org) for __CSS__ (with [Autoprefixer](http://autoprefixer.github.io), [cssnano](http://cssnano.co) and Bimmelbam)
 * ES6 with [Babel](http://babeljs.io) and [Browserify](http://browserify.org) for beautiful __JavaScript__
 * [Nunjucks](https://mozilla.github.io/nunjucks/) __Templates__ (for the prototype, but could also be used for JavaScript components)
-* ein konfigurierbarer [Modernizr](https://modernizr.com) (because it works)
-* __Bilder__ be minified
-* __SVGs__ are combined and put into HTML (for icons)
-* [Bootstrap](http://getbootstrap.com) and [Google Material Icons](https://material.io/icons/) are integrated as external components (via npm)
+* a customizable Modernizr [Modernizr](https://modernizr.com) (because it works)
+* __Images__ be minified
+* __SVGs__ are combined and injected into the HTML (for icons)
+* [Bootstrap](http://getbootstrap.com) and [Google Material Icons](https://material.io/icons/) are included as external components (via npm)
 * [BrowserSync](https://www.browsersync.io) for __Live-Reload__ and for testing on different devices
 
 Not included, but very useful:
@@ -35,26 +35,25 @@ Not included, but very useful:
 
 ## Setup
 
-1. __Node__ (>= 6.9) install, if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
-2. __Yarn__ install, if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
-3. Change to our directory in the terminal and get the needed packages by Yarn.
+1. __Install Node__ (>= 6.9) install, if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
+2. __Install Yarn__ install, if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
+3. Change to our directory in the terminal and **fetch the required** packages.
 _Attention, several hundred megabytes of data are coming through the line!_  
 
         $ yarn
 
-4. __Gulp__, if its not installed, you can install it with Yarn global:
+4. __Gulp__, Use Yarn to install Gulp globally, if it is not already installed:
 
         $ yarn global add gulp-cli
 
-5. Create a __localhost / vhost__ (for example, `http: // local.bimmelbam`) for our project that works for REDAXO. Target directory of the host is `/app`!  
-_Btw: Here you find a good Guide: [»Create a local domain using Apache Virtual Hosts«](http://www.matthias-zeis.com/ressourcen/zfstde/zfbook.creating.a.local.domain.using.apache.virtual.hosts.html)_
-6. Create the `.env` (__Environment__) in the projectroot. Just copy the `.env.example` included in the package and adjust it accordingly: `APP_HOST` corresponds to the newly created host, `APP_ENV` we leave for the time being on `development`.
+5. Set up a **localhost/vhost** (for example, `http://local.bimmelbam`) for our project that works for REDAXO. Target directory of the host is `/app`!  
+6. Create the `.env` (__Environment__) in the project root. Just copy the `.env.example` included in the package and adjust it accordingly: `APP_HOST` corresponds to the newly created host, `APP_ENV` we leave for the time being on `development`.
 7. Start the front-end workflow. After that, our frontend prototype should be accessible via `http://localhost:3000/demo/`:
 
         $ gulp
 
 Did not work? Sorry :-(  
-Don't worry!. you can ask the [REDAXO-Slack](http://redaxo.org/slack/) or in the [Forum](http://www.redaxo.org/de/forum/allgemeines-f39/frontend-workflow-fur-redaxo-mit-gulp-browserify-postcss-t21541.html#p120663), here you will get help!
+No worries!. you can ask the [REDAXO-Slack](http://redaxo.org/slack/) or in the [Forum](http://www.redaxo.org/de/forum/allgemeines-f39/frontend-workflow-fur-redaxo-mit-gulp-browserify-postcss-t21541.html#p120663), here you will get help!
 
 ---
 
