@@ -75,7 +75,7 @@ In addition, the workflow works quite generic. So you could use it in the same w
 
 ### Production
 
-To get the site ready for production, turn on `APP_ENV = production` and let go through Gulp. JavaScript and CSS are minimized, source maps are removed and images are compressed. In REDAXO you do not have to do anything, because all assets keep their paths. However, you should consider a solution to control the caching, such as using timestamp parameters (example: `styles.css? V = 1335939007`, see also this[Solution for REDAXO](https://github.com/redaxo/redaxo/pull/976/commits/e1013defced264ffd9f6c24993acdd14791869bf)).
+To get the site ready for production, turn on `APP_ENV = production` and let go through Gulp. JavaScript and CSS are minimized, source maps are removed and images are compressed. In REDAXO you do not have to do anything, because all assets keep their paths. However, you should consider a solution to control the caching, such as using timestamp parameters (example: `styles.css? V = 1335939007`, see also this [Solution for REDAXO](https://github.com/redaxo/redaxo/pull/976/commits/e1013defced264ffd9f6c24993acdd14791869bf)).
 
 ---
 
