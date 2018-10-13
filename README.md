@@ -10,8 +10,8 @@ Example of a front-end workflow for developing a REDAXO website.
 
 * A __generic frontend workflow__ that does not necessarily require REDAXO, but works in several contexts (static website, different CMS, web app).
 * REDAXO and a static front-end prototype __share all assets__ (CSS, JS, media, ...).
-* The prototype is used for the complete frontend development. The REDAXO implementation can be done separately (useful when working in a team).
-* Switching between develop and production mode takes place outside of REDAXO, and there is no need to modifiy templates or modules.
+* The __prototype__ is used for the complete frontend development. The REDAXO implementation can be done separately (useful when working in a team).
+* Switching between __develop and production mode__ mode takes place outside of REDAXO, and there is no need to modifiy templates or modules.
 
 ## Components and features
 
@@ -35,9 +35,11 @@ Not included, but very useful:
 
 ## Setup
 
-1. Install __Node__ (>= 6.9) install, if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
-2. Install __Yarn__ install, if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
-3. Change to our directory in the terminal and **fetch the required** packages.
+1. Install __Node__ (>= 6.9), if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
+2. Install __Yarn__, if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
+3. Change to our directory in the terminal andand fetch the required packages packages.
+
+
 _Attention, several hundred megabytes of data are coming through the line!_  
 
         $ yarn
@@ -63,13 +65,13 @@ No worries! You can ask [REDAXO-Slack](http://redaxo.org/slack/) or in the [Foru
 
 ### REDAXO
 
-This project does not contain _no_ REDAXO installation. Once your gulp tasks have completed successfully, you can now put REDAXO yourself, directly into the `/app` directory. There are already the typical REDAXO folders.
+This project does not contain _not_ REDAXO installation. Once your gulp tasks have completed successfully, you can now __manually add REDAXO into__ the /app directory. __It already contains the common REDAXO folders.__
 
-As soon as your REDAXO is up and running, you can implement the website as usual using templates and modules. The HTML you use as in the prototype (if necessary, adapt paths!) And embed the same assets. In the end, you have a working REDAXO website whose output is identical to the prototype.
+Once your REDAXO is up and running, you can implement the website with templates and modules as usual. Take the HTML from the prototype (adapt file paths as required) and include the same assets. When done, you’ll see a working REDAXO website whose output is identical to the prototype.
 
 ### Prototype
 
-If you want to develop your frontend directly in REDAXO in the future, you can now discard the prototype. __But the purpose of this project is to convince you to develop the frontend basically _outside_ of REDAXO based on the prototype .__ Why? Because it is more efficient and comfortable, and because it works in a team. can be adopted by people who focus exclusively on frontend development and do not need a REDAXO and PHP experience.
+If you prefer to develop your frontend within REDAXO from now on, you can discard the prototype. __However, the intention of this project is to convince you to develop frontend _outside_ of REDAXO using the prototype.__ Why? Because it’s more efficient and comfortable, and also because it can be done by fellow workers who concentrate exclusively on frontend development and don’t require REDAXO and PHP experience.
 
 In addition, the workflow works quite generic. So you could use it in the same way for other projects, for example in combination with other CMS, for purely static websites or web apps. ✌️
 
