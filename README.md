@@ -37,8 +37,7 @@ Not included, but very useful:
 
 1. Install __Node__ (>= 6.9), if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
 2. Install __Yarn__, if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
-3. Change to our directory in the terminal andand fetch the required packages packages.
-
+3. Change to our directory in the terminal and fetch the required packages.  
 
 _Attention, several hundred megabytes of data are coming through the line!_  
 
@@ -65,7 +64,7 @@ No worries! You can ask [REDAXO-Slack](http://redaxo.org/slack/) or in the [Foru
 
 ### REDAXO
 
-This project does not contain _not_ REDAXO installation. Once your gulp tasks have completed successfully, you can now __manually add REDAXO into__ the /app directory. __It already contains the common REDAXO folders.__
+This project does _not_ contain REDAXO installation. Once your gulp tasks have completed successfully, you can now __manually add REDAXO into__ the /app directory. __It already contains the common REDAXO folders.__
 
 Once your REDAXO is up and running, you can implement the website with templates and modules as usual. Take the HTML from the prototype (adapt file paths as required) and include the same assets. When done, you’ll see a working REDAXO website whose output is identical to the prototype.
 
@@ -77,7 +76,7 @@ In addition, the workflow works quite generic. So you could use it in the same w
 
 ### Production
 
-To get the site ready for production, turn on `APP_ENV = production` and let go through Gulp. JavaScript and CSS are minimized, source maps are removed and images are compressed. In REDAXO you do not have to do anything, because all assets keep their paths. However, you should consider a solution to control the caching, such as using timestamp parameters (example: `styles.css? V = 1335939007`, see also this [Solution for REDAXO](https://github.com/redaxo/redaxo/pull/976/commits/e1013defced264ffd9f6c24993acdd14791869bf)).
+To get the site ready for production, turn on `APP_ENV = production` and let go through Gulp. JavaScript and CSS are minimized, source maps are removed and images are compressed. In REDAXO you do not have to **modify** anything, because all assets keep their paths. However, you should consider a solution to control the caching, such as using timestamp parameters (example: `styles.css?V=1335939007`, see also this [Solution for REDAXO](https://github.com/redaxo/redaxo/pull/976/commits/e1013defced264ffd9f6c24993acdd14791869bf)).
 
 ---
 
