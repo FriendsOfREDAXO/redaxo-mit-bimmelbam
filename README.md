@@ -1,140 +1,142 @@
-# REDAXO mit Gulp, Browserify, PostCSS und Bimmelbam
+<p align="right">🌎 <a href="https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/blob/master/README.de.md">Deutsch</a></p>
 
-Beispiel eines Frontend-Workflows zur Entwicklung einer REDAXO-Website.
+# REDAXO with Gulp, Browserify, PostCSS and Bimmelbam
+
+Example of a front-end workflow for developing a REDAXO website.
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/assets/redaxo-mit-bimmelbam.jpg)
 
-## Idee
+## Idea
 
-* Ein __generischer Frontend-Workflow__, der nicht zwangsläufig REDAXO erfordert, sondern auch im anderen Kontext (statische Website, anderes CMS, Webapp) funktioniert.
-* REDAXO und ein statischer Frontend-Prototyp greifen auf __die gleichen Assets__ (CSS, JS, Medien, …) zu.
-* Am __Prototyp__ findet die komplette Frontend-Entwicklung statt, die Implementierung für REDAXO kann unabhängig erfolgen (sinnvoll bei Arbeit im Team).
-* Der Wechsel zwischen __Develop- und Production-Modus__ findet außerhalb von REDAXO statt, und es sind dafür auch keine Eingriffe in Templates oder Module notwendig.
+* A __generic frontend workflow__ that does not necessarily require REDAXO, but works in several contexts (static website, different CMS, web app).
+* REDAXO and a static front-end prototype __share all assets__ (CSS, JS, media, ...).
+* The __prototype__ is used for the complete frontend development. The REDAXO implementation can be done separately (useful when working in a team).
+* Switching between __develop and production mode__ mode takes place outside of REDAXO, and there is no need to modifiy templates or modules.
 
-## Komponenten und Funktionen
+## Components and features
 
-* [Yarn](https://yarnpkg.com) als __package manager__
-* [Gulp](http://gulpjs.com) als __task runner__
-* [Sass](http://sass-lang.com) und [PostCSS](http://postcss.org) für __CSS__ (mit [Autoprefixer](http://autoprefixer.github.io), [cssnano](http://cssnano.co) und Bimmelbam)
-* ES6 mit [Babel](http://babeljs.io) und [Browserify](http://browserify.org) für schönes __JavaScript__
-* [Nunjucks](https://mozilla.github.io/nunjucks/) __Templates__ (für den Prototyp, könnten aber auch für JavaScript-Komponenten verwendet werden)
-* ein konfigurierbarer [Modernizr](https://modernizr.com) (weil es geht)
-* __Bilder__ werden minifiziert
-* __SVGs__ werden kombiniert und ins HTML gebracht (für Icons)
-* [Bootstrap](http://getbootstrap.com) und [Google Material Icons](https://material.io/icons/) werden als externe Komponenten (via npm) eingebunden
-* [BrowserSync](https://www.browsersync.io) für __Live-Reload__ und zum Test auf verschiedenen Geräten
+* [Yarn](https://yarnpkg.com) as a __package manager__
+* [Gulp](http://gulpjs.com) as a __task runner__
+* [Sass](http://sass-lang.com) and [PostCSS](http://postcss.org) for __CSS__ (with [Autoprefixer](http://autoprefixer.github.io), [cssnano](http://cssnano.co) and Bimmelbam)
+* ES6 with [Babel](http://babeljs.io) and [Browserify](http://browserify.org) for beautiful __JavaScript__
+* [Nunjucks](https://mozilla.github.io/nunjucks/) __Templates__ (for the prototype, but could also be used for JavaScript components)
+* a customizable [Modernizr](https://modernizr.com) (because it works)
+* __Images__ be minified
+* __SVGs__ are combined and injected into the HTML (for icons)
+* [Bootstrap](http://getbootstrap.com) and [Google Material Icons](https://material.io/icons/) are included as external components (via npm)
+* [BrowserSync](https://www.browsersync.io) for __Live-Reload__ and for testing on different devices
 
-Nicht enthalten, aber sehr sinnvoll:
+Not included, but very useful:
 
-* __Linting__, damit Code den Anforderungen entspricht.
-* __Testing__, weil Menschen ständig Fehler machen.
-* __Continuous integration (CI)__, um das Projekt nicht immer von Hand zusammenbauen zu müssen.
-* __Deployment__ und sonstiges Bimmelbam
+* __Linting__, so that code meets the requirements.
+* __Testing__, because people are constantly making mistakes.
+* __Continuous integration (CI)__, not always having to assemble the project by hand.
+* __Deployment__ and other Bimmelbam
 
 ## Setup
 
-1. __Node__ (>= 6.9) installieren, falls noch nicht vorhanden. Kann als Paket direkt von der Website runtergeladen werden: [https://nodejs.org](https://nodejs.org)
-2. __Yarn__ installieren, falls noch nicht vorhanden ([Anleitung](https://yarnpkg.com/en/docs/install)).
-3. Im Terminal in unser Verzeichnis wechseln und mittels Yarn die benötigten Pakete holen.  
-_Achtung, es kommen mehrere hundert Megabyte an Daten durch die Leitung!_  
+1. Install __Node__ (>= 6.9), if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
+2. Install __Yarn__, if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
+3. Change to our directory in the terminal and fetch the required packages.  
+
+_Attention, several hundred megabytes of data are coming through the line!_  
 
         $ yarn
 
-4. __Gulp__, falls noch nicht vorhanden, mittels Yarn global installieren:
+4. Use Yarn to install __Gulp__ globally, if it is not already installed:
 
         $ yarn global add gulp-cli
 
-5. Einen __localhost/vhost__ (z. B. `http://local.bimmelbam`) für unser Projekt anlegen, der für REDAXO funktioniert. Zielverzeichnis des Hosts ist `/app`!  
-_Anm.: Eine gute Anleitung gibt es hier: [»Eine lokale Domain mittels Apache Virtual Hosts erstellen«](http://www.matthias-zeis.com/ressourcen/zfstde/zfbook.creating.a.local.domain.using.apache.virtual.hosts.html)_
-6. Die `.env` (__Environment__) im Projektroot anlegen. Dazu einfach die im Paket enthaltene `.env.example` kopieren und entsprechend anpassen: `APP_HOST` entspricht dem eben angelegten Host, `APP_ENV` belassen wir vorerst auf `development`.
-7. Den Frontend-Workflow starten. Danach sollte unser Frontend-Prototyp erreichbar sein über `http://localhost:3000/demo/`:
+5. Set up a **localhost/vhost** (for example, `http://local.bimmelbam`) for our project that works for REDAXO. Target directory of the host is `/app`!  
+6. Create the `.env` (__Environment__) in the project root. Just copy the `.env.example` included in the package and adjust it accordingly: `APP_HOST` corresponds to the newly created host, `APP_ENV` we leave for the time being on `development`.
+7. Start the front-end workflow. After that, our frontend prototype should be accessible via `http://localhost:3000/demo/`:
 
         $ gulp
 
-Hat nicht geklappt? Sorry :-(  
-Nicht ärgern und lieber im [REDAXO-Slack](http://redaxo.org/slack/) nachfragen oder im [Forum](http://www.redaxo.org/de/forum/allgemeines-f39/frontend-workflow-fur-redaxo-mit-gulp-browserify-postcss-t21541.html#p120663), dort wird dir geholfen!
+Did not work? Sorry :-(  
+No worries! You can ask [REDAXO-Slack](http://redaxo.org/slack/) or in the [Forum](http://www.redaxo.org/de/forum/allgemeines-f39/frontend-workflow-fur-redaxo-mit-gulp-browserify-postcss-t21541.html#p120663), here you will get help!
 
 ---
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/assets/redaxo-mit-bimmelbam_02.png)
 
-## Wie geht’s weiter?
+## What's next?
 
 ### REDAXO
 
-In diesem Projekt ist _keine_ REDAXO-Installation enthalten. Wenn deine Gulp-Tasks erfolgreich durchgelaufen sind, kannst du dir REDAXO nun selbst dazustecken, und zwar direkt ins `/app`-Verzeichnis. Dort liegen bereits die typischen REDAXO-Ordner.
+This project does _not_ contain REDAXO installation. Once your gulp tasks have completed successfully, you can now __manually add REDAXO into__ the /app directory. __It already contains the common REDAXO folders.__
 
-Sobald dein REDAXO läuft, kannst du die Website wie gewohnt mittels Templates und Modulen implementieren. Das HTML verwendest du so wie im Prototyp (ggfls. Pfade anpassen!) und bindest die gleichen Assets ein. Am Ende hast du eine lauffähige REDAXO-Website, deren Output mit dem Prototyp identisch ist.
+Once your REDAXO is up and running, you can implement the website with templates and modules as usual. Take the HTML from the prototype (adapt file paths as required) and include the same assets. When done, you’ll see a working REDAXO website whose output is identical to the prototype.
 
-### Prototyp
+### Prototype
 
-Falls du dein Frontend zukünftig direkt in REDAXO entwickeln möchtest, kannst du den Prototyp nun verwerfen. __Jedoch ist die Absicht dieses Projekts ausgerechnet die, dich davon zu überzeugen, Frontend grundsätzlich _außerhalb_ von REDAXO anhand des Prototyps zu entwickeln.__ Warum? Weil es effizienter und komfortabler ist, und weil es im Team ggfls. von Leuten übernommen werden kann, die sich ausschließlich auf Frontend-Entwicklung konzentrieren und keine REDAXO- und PHP-Erfahrung benötigen.
+If you prefer to develop your frontend within REDAXO from now on, you can discard the prototype. __However, the intention of this project is to convince you to develop frontend _outside_ of REDAXO using the prototype.__ Why? Because it’s more efficient and comfortable, and also because it can be done by fellow workers who concentrate exclusively on frontend development and don’t require REDAXO and PHP experience.
 
-Zudem funktioniert der Workflow ziemlich generisch. Du könntest ihn also in gleicher Form auch für andere Projekte verwenden, etwa im Kombi mit anderen CMS, für rein statische Websites oder Web Apps. ✌️
+In addition, the workflow works quite generic. So you could use it in the same way for other projects, for example in combination with other CMS, for purely static websites or web apps. ✌️
 
 ### Production
 
-Um die Website produktionsfertig zu machen, aktivierst du `APP_ENV=production` und lässt Gulp durchlaufen. Dabei werden JavaScript und CSS minifiziert, Sourcemaps entfernt und Bilder komprimiert. In REDAXO musst du nichts weiter tun, denn alle Assets behalten ihre Pfade. Allerdings solltest du dir eine Lösung überlegen, das Caching zu kontrollieren, etwa mittels Timestamp-Parameter (Beispiel: `styles.css?v=1335939007`, siehe auch diese [Lösung für REDAXO](https://github.com/redaxo/redaxo/pull/976/commits/e1013defced264ffd9f6c24993acdd14791869bf)).
+To get the site ready for production, turn on `APP_ENV = production` and let go through Gulp. JavaScript and CSS are minimized, source maps are removed and images are compressed. In REDAXO you do not have to **modify** anything, because all assets keep their paths. However, you should consider a solution to control the caching, such as using timestamp parameters (example: `styles.css?V=1335939007`, see also this [Solution for REDAXO](https://github.com/redaxo/redaxo/pull/976/commits/e1013defced264ffd9f6c24993acdd14791869bf)).
 
 ---
 
-## Docker :whale: fürs Backend
+## Docker :whale: for the Backend
 
-Der Frontend-Workflow ist komplett, so dass wir nun die Entwicklungsumgebung fürs Backend optimieren können. Zum Beispiel mit Docker, um ein einheitliches Setup fürs Team zu ermöglichen und unabhängig von der lokalen Systemumgebung des Computers werden.
+The front-end workflow is complete, so we can now optimize the development environment for the backend. For example with Docker, to enable a consistent setup for the team and to be independent of the local system environment of the computer.
 
-Dieses Paket enthält neben dem Frontend-Bimmelbam auch eine __vereinfachte Version des Pakets [REDAXO mit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)__. Die zugehörigen Dateien und Ordner sind:
+In addition to the front-end Bimmelbam, this package also includes a __simplified version of the package [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)__. The associated files and folders are:
 
     db/
     docker/
     .dockerignore
     docker-compose.yml
 
-:point_right: _Falls du Bimmelbam nicht mit Docker betreiben möchtest, kannst du diese Komponenten einfach löschen, falls es dir sonst zu unübersichtlich wird._
+:point_right: _If you do not want to run Bimmelbam with Docker, you can simply delete these components if it gets too confusing for you._
 
-Wir verwenden Docker für Bimmelbam, um eine __Serverumgebung (Apache, PHP, MySQL)__ bereitzustellen. Das ist ziemlich praktisch, denn dann muss dein Computer nicht dafür eingerichtet werden, und zudem habt ihr, falls ihr im Team arbeitet, am Ende alle die gleiche Serverumgebung, unabhängig vom verwendeten Betriebssystem.
+We use Docker for Bimmelbam to provide a __server environment (Apache, PHP, MySQL)__. That's pretty handy, because then your computer does not have to be set up for that, and besides, if you work in a team, you all end up with the same server environment, regardless of the operating system you're using.
 
 ### Setup
 
-__`.env` anpassen:__
+__Edit `.env`__ file:
 
     APP_HOST=http://localhost:20080
 
-:point_right: _Wir benutzen Port `20080` für HTTP und `23306` für die Datenbank, um nicht in Konflikt mit den Standardports `80`/`3306` zu kommen, sollten diese bereits verwendet werden. Das macht unser Setup robuster.  
-Wenn du mehrere Docker-Projekte verwendest, musst du noch beachten, dass alle diese Ports verwenden und deshalb immer nur eins laufen kann, nicht mehrere gleichzeitig._
+:point_right: _We use port `20080` for HTTP and `23306` for the database, so as not to conflict with the standard ports `80`/`3306`, if they are already in use. That makes our setup more robust.
+If you use several Docker projects, you have to keep in mind that all these ports use and therefore only one can run at a time, not several at the same time.
 
-### Verwendung
+### Usage
 
-Falls Docker für dich neu ist: Gar kein Problem, es gibt eine [Anleitung für Einsteiger\_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket). :rocket:
+If Docker is new to you: no problem, there is a [Instruction for beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket). :rocket:
 
-__Docker-Container starten:__
+__Start Docker-Container:__
 
     $ docker-compose up -d
 
-__REDAXO im Browser aufrufen:__
+__REDAXO in the Browser:__
 
     http://localhost:3000
 
-:point_right: _Wir benutzen zum Aufruf im Browser nachwievor den Port 3000, so wie in Bimmelbam definiert (siehe [config.js](https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/blob/d32f63df232f5273fd4b967a76e4cea5e90321fd/gulpfile.js/config.js#L14)). Bimmelbam verwendet einen Proxy und zeigt damit auf Port 20080, auf dem Docker den Apache bereitstellt. Lass dich davon nicht verwirren._
+:point_right: _We still use the port 3000 to call in the browser, as defined in Bimmelbam (see [config.js](https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/blob/d32f63df232f5273fd4b967a76e4cea5e90321fd/gulpfile.js/config.js#L14)). Bimmelbam uses a proxy pointing to port 20080, where Docker provides Apache. Do not let that confuse you._
 
-### Unterschiede zum Setup in [REDAXO mit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)
+### Differences between the setup in [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)
 
-Das Docker-Setup in diesem Paket ist weniger aufwendig gestrickt als das Setup im _großen_ Paket »REDAXO mit Docker«. Hier soll Docker lediglich eine Serverumgebung bereitstellen und verzichtet auf zusätzliche Features. Dies sind die Unterschiede:
+The Docker setup in this package is less complicated to knit than the setup in the _large package_ »REDAXO with Docker«. Hier soll Docker lediglich eine Serverumgebung bereitstellen und verzichtet auf zusätzliche Features. Dies sind die Unterschiede:
 
-1. Es installiert dir nicht automatisch ein frisches REDAXO.
-2. Es installiert auch keine Demo-Websites.
-3. Es bringt keinen [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#mailhog-verwenden) mit, um den Mailversand in REDAXO zu testen.
-4. Der Zugriff mittels HTTPS ist nicht konfiguriert.
-5. Als Volume für den Webroot wird hier der Ordner `app/` verwendet, im anderen Paket ist es `html/`.
+1. It does not automatically install a fresh REDAXO.
+2. It also does not install demo sites.
+3. There is no [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#mailhog-verwenden) to send mails with REDAXO
+4. Access via HTTPS is not configured.
+5. The volume for the webroot is the folder `app/`, in the other package it is `html/`.
 
-Falls du hier in Bimmelbam lieber mit dem großen Docker-Setup arbeiten möchtest, kannst du benötigten Dateien und Ordner einfach aus »REDAXO mit Docker« hierher kopieren. Du musst danach lediglich in `docker-compose.yml` den Webroot auf `app/` ändern. Alles andere kann beibehalten werden und sollte nahtlos auch in Bimmelbam funktionieren.
+If you prefer to work with the large Docker setup here in Bimmelbam, you can easily copy required files and folders from »REDAXO with Docker« here. After that, you only need to change the webroot to `app/` in `docker-compose.yml`. Everything else can be maintained and should work seamlessly in Bimmelbam as well.
 
-### Weitere Infos, Konfiguration und Anpassung
+### Further information, configuration and customization
 
-Ganz viele Informationen findest du im Paket [REDAXO mit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker), unter anderem zu diesen Themen:
+You will find a lot of information in the package [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker), and also to this Topics:
 
-* [Anpassungen für deine Projekte](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anpassungen-für-deine-projekte)
-* [Konfiguration und Tipps](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#konfiguration-und-tipps)
-* [Anleitung für Einsteiger_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket) 🚀
+* [Adjustments for your projects](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anpassungen-für-deine-projekte)
+* [Configuration and tips](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#konfiguration-und-tipps)
+* [Guide for beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket) 🚀
 
-Falls du Fragen hast oder Hilfe benötigst, kontakte uns jederzeit gerne im Slack-Chat! Eine Einladung bekommst du hier: https://redaxo.org/slack/
+If you have questions or need help, feel free to contact us in Slack Chat! You will receive an invitation here: https://redaxo.org/slack/
 
