@@ -8,10 +8,10 @@ Example of a front-end workflow for developing a REDAXO website. (<sup>*</sup> s
 
 ## Idea
 
-* A __generic frontend workflow__ that does not necessarily require REDAXO, but works in several contexts (static website, different CMS, web app).
+* A __generic frontend workflow__ that does not necessarily require REDAXO but works in several contexts (static website, different CMS, web app).
 * REDAXO and a static front-end prototype __share all assets__ (CSS, JS, media, ...).
-* The __prototype__ is used for the complete frontend development. The REDAXO implementation can be done separately (useful when working in a team).
-* Switching between __develop and production mode__ mode takes place outside of REDAXO, and there is no need to modifiy templates or modules.
+* The __prototype__ is used for the complete frontend development. Implementation for REDAXO can be done separately (useful when working in a team).
+* Switch between __develop and production mode__ without touching REDAXO, there is no need to modifiy templates or modules.
 
 ## Components and features
 
@@ -19,19 +19,19 @@ Example of a front-end workflow for developing a REDAXO website. (<sup>*</sup> s
 * [Gulp](http://gulpjs.com) as a __task runner__
 * [Sass](http://sass-lang.com) and [PostCSS](http://postcss.org) for __CSS__ (with [Autoprefixer](http://autoprefixer.github.io), [cssnano](http://cssnano.co) and Bimmelbam)
 * ES6 with [Babel](http://babeljs.io) and [Browserify](http://browserify.org) for beautiful __JavaScript__
-* [Nunjucks](https://mozilla.github.io/nunjucks/) __Templates__ (for the prototype, but could also be used for JavaScript components)
+* [Nunjucks](https://mozilla.github.io/nunjucks/) __templates__ (for the prototype, but could also be used for JavaScript components)
 * A customizable [Modernizr](https://modernizr.com) (because it works)
-* __Images__ be minified
-* __SVGs__ are combined and injected into the HTML (for icons)
+* __Images__ get minified
+* __SVGs__ get combined and injected into the HTML (for icons)
 * [Bootstrap](http://getbootstrap.com) and [Google Material Icons](https://material.io/icons/) are included as external components (via npm)
-* [BrowserSync](https://www.browsersync.io) for __Live-Reload__ and for testing on different devices
+* [BrowserSync](https://www.browsersync.io) for __live reload__ and for testing on different devices
 
 Not included, but meaningful:
 
 * __Linting__, so that code meets the requirements.
 * __Testing__, because people are constantly making mistakes.
 * __Continuous integration (CI)__ to not always having to assemble the project by hand.
-* __Deployment__ and other _Bimmelbam_ (is: stuff)
+* __Deployment__ and other Bimmelbam (means: stuff)
 
 ## Setup
 
@@ -46,14 +46,14 @@ Not included, but meaningful:
 
 		$ yarn global add gulp-cli
 
-5. Set up a **localhost/vhost** (for example, `http://local.bimmelbam`) for our project that works for REDAXO. Target directory of the host is `/app`!
-6. Create the `.env` (__Environment__) in the project root. Just copy the `.env.example` included in the package and adjust it accordingly: `APP_HOST` corresponds to the newly created host, `APP_ENV` can remain at `development` for the time being.
+5. Set up a **localhost/vhost** (for example, `http://local.bimmelbam`) for our project that is able to run REDAXO. Target directory of the host is `/app`!
+6. Create an `.env` file (__Environment__) inside of the project root. Just copy the `.env.example` included in the package and adjust it accordingly: `APP_HOST` corresponds to the host you have previously set up, `APP_ENV` can remain at `development` for the time being.
 7. Start the front-end workflow. After that, our frontend prototype should be accessible via `http://localhost:3000/demo/`:
 
 		$ gulp
 
 Does not work? Sorry :-(  
-No worries! Join the [REDAXO Slack](http://redaxo.org/slack/) for help or leave a post on the [Forum](http://www.redaxo.org/de/forum/allgemeines-f39/frontend-workflow-fur-redaxo-mit-gulp-browserify-postcss-t21541.html#p120663), we’ll try to support you!
+No worries! Join the [REDAXO Slack](https://redaxo.org/slack/) for help or leave a post on the [Forum](https://www.redaxo.org/forum/), we’ll try to support you!
 
 ---
 
