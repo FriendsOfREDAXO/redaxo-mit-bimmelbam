@@ -106,7 +106,7 @@ Wenn du mehrere Docker-Projekte verwendest, musst du noch beachten, dass alle di
 
 ### Verwendung
 
-Falls Docker für dich neu ist: Gar kein Problem, es gibt eine [Anleitung für Einsteiger\_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket). :rocket:
+Falls Docker für dich neu ist: Gar kein Problem, es gibt eine [Anleitung für Einsteiger\_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#anleitung-für-einsteiger_innen-rocket). :rocket:
 
 __Docker-Container starten:__
 
@@ -124,7 +124,7 @@ Das Docker-Setup in diesem Paket ist weniger aufwendig gestrickt als das Setup i
 
 1. Es installiert dir nicht automatisch ein frisches REDAXO.
 2. Es installiert auch keine Demo-Websites.
-3. Es bringt keinen [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#mailhog-verwenden) mit, um den Mailversand in REDAXO zu testen.
+3. Es bringt keinen [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#mailhog-verwenden) mit, um den Mailversand in REDAXO zu testen.
 4. Der Zugriff mittels HTTPS ist nicht konfiguriert.
 5. Als Volume für den Webroot wird hier der Ordner `app/` verwendet, im anderen Paket ist es `html/`.
 
@@ -134,9 +134,9 @@ Falls du hier in Bimmelbam lieber mit dem großen Docker-Setup arbeiten möchtes
 
 Ganz viele Informationen findest du im Paket [REDAXO mit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker), unter anderem zu diesen Themen:
 
-* [Anpassungen für deine Projekte](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anpassungen-für-deine-projekte)
-* [Konfiguration und Tipps](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#konfiguration-und-tipps)
-* [Anleitung für Einsteiger_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket) 🚀
+* [Anpassungen für deine Projekte](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#anpassungen-für-deine-projekte)
+* [Konfiguration und Tipps](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#konfiguration-und-tipps)
+* [Anleitung für Einsteiger_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#anleitung-für-einsteiger_innen-rocket) 🚀
 
 Falls du Fragen hast oder Hilfe benötigst, kontakte uns jederzeit gerne im Slack-Chat! Eine Einladung bekommst du hier: https://redaxo.org/slack/
 

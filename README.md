@@ -104,7 +104,7 @@ __Edit `.env` file:__
 
 ### Usage
 
-If Docker is new to you: no problem, there is a [Instruction for Beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket) _(still german only, sorry)_. :rocket:
+If Docker is new to you: no problem, there is a [Instruction for Beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#beginners-guide-rocket). :rocket:
 
 __Start Docker-Container:__
 
@@ -122,7 +122,7 @@ The Docker setup in this package is less comprehensive than the setup in the _pa
 
 1. It does not automatically install a fresh REDAXO.
 2. It also does not install demo sites.
-3. It doesn’t include [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#mailhog-verwenden) to send mails from REDAXO.
+3. It doesn’t include [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#use-mailhog) to send mails from REDAXO.
 4. HTTPS/SSL is not configured.
 5. The volume for the webroot is the folder `app/` while in the parent package it’s `html/`.
 
@@ -132,8 +132,8 @@ If you prefer to work with the large Docker setup here in Bimmelbam, you can eas
 
 You will find a lot of information in the package [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker), and also concerning these topics:
 
-* [How to adapt for your projects](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anpassungen-für-deine-projekte)
-* [Configuration and tips](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#konfiguration-und-tipps)
-* [Guide for beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#anleitung-für-einsteiger_innen-rocket) 🚀
+* [How to adapt for your projects](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#customize-for-your-project)
+* [Configuration and tips](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#configuration-and-tips)
+* [Guide for beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#beginners-guide-rocket) 🚀
 
 If you have questions or need help, feel free to contact us in Slack Chat! You will receive an invitation here: https://redaxo.org/slack/
