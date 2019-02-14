@@ -42,7 +42,7 @@ const config = {
         },
         {
             'title': 'Material Icons',
-            'sourceFolder': './node_modules/material-design-icons/iconfont',
+            'sourceFolder': './node_modules/material-design-icons-iconfont/dist/fonts',
             'sourceFiles': ['*.{woff,woff2}'],
             'destinationFolder': './app/assets/fonts'
         }
