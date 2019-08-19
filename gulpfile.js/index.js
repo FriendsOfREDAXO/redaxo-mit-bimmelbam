@@ -3,7 +3,7 @@ const requireDir = require('require-dir');
 
 // load ENV
 // find values in process.env.${value}, e. g. process.env.APP_ENV
-require('dotenv').load();
+require('dotenv').config();
 
 // Require all tasks in gulpfile.js/tasks, including subfolders
 requireDir('./tasks', { recurse: true });
