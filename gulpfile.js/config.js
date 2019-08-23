@@ -16,7 +16,10 @@ const config = {
         'reloadOnRestart': true,
         'notify': false,
         'reloadDelay': 0,
-        'ghostMode': false // disable mirroring clicks, scrolls and forms. it’s too buggy.
+        'ghostMode': false, // disable mirroring clicks, scrolls and forms. it’s too buggy.
+        'snippetOptions': {
+            'ignorePaths': ["redaxo/**"]
+        }
     },
 
     // Clean
