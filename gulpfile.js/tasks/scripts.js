@@ -5,7 +5,7 @@ const colors = require('ansi-colors');
 const browserify = require('browserify');
 const watchify = require('watchify');
 const babelify = require('babelify');
-const uglify = require('gulp-uglify');
+const terser = require('terser');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const sourcemaps = require('gulp-sourcemaps');
@@ -57,7 +57,7 @@ function bundle() {
         .pipe(source('script.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(process.env.APP_ENV === 'production' ? uglify() : through())
+        .pipe(process.env.APP_ENV === 'production' ? terser() : through())
         .pipe(through((log(colors.white('JS files generated:')))))
         .pipe(size({title: 'Scripts:', showFiles: true}))
         .pipe(sourcemaps.write('./'))
