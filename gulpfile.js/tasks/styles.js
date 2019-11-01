@@ -42,7 +42,9 @@ const task = (done) => {
         .pipe(sassGlob())
 
         // compile sass
-        .pipe(sass())
+        .pipe(sass({
+            includePaths: ['node_modules']
+        }))
         .on('error', function (err) {
 
             // mark errors
