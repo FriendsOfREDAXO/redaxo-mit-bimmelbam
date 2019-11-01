@@ -25,6 +25,7 @@
     "fancy-log": "^1",
     "gulp": "^4",
     "gulp-count": "^1",
+    "gulp-dart-sass": "^0.9.1",
     "gulp-imagemin": "^6",
     "gulp-nunjucks-html": "^2",
     "gulp-plumber": "^1",
