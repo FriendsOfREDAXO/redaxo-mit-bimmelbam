@@ -31,7 +31,6 @@
     "gulp-plumber": "^1",
     "gulp-postcss": "^8",
     "gulp-rename": "^1",
-    "gulp-sass": "^4",
     "gulp-sass-glob": "^1",
     "gulp-size": "^3",
     "gulp-sourcemaps": "^2",
