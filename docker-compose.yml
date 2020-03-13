@@ -1,29 +1,21 @@
 version: "3"
 services:
 
-  web:
-    container_name: bimmelbam
-    hostname: bimmelbam
-    build: ./docker/php-apache              # location for web server dockerfile and config
+  redaxo:
+    image: friendsofredaxo/redaxo:5
     ports:
       - 20080:80                            # web server will use port 20080
     volumes:
-      - ./app:/var/www/html:cached          # webroot `/var/www/html` will be synced with your local folder `./app`
+      - ./app:/var/www/html:cached          # sync webroot with local folder `app`
     depends_on:
-      - db
-    links:
-      - db
+      - db                                  # requires database container to be available
 
   db:
-    container_name: bimmelbam_db
-    hostname: bimmelbam_db
-    build: ./docker/mysql                   # location for database dockerfile and config
-    ports:
-      - 23306:3306                          # database will use port 23306
+    image: mysql:5
     volumes:
-      - ./db:/var/lib/mysql:cached          # database in `/var/lib/mysql` will be synced with your local folder `./db`
+      - ./db:/var/lib/mysql:cached          # sync database with local folder `db`
     environment:
       MYSQL_DATABASE: redaxo
       MYSQL_USER: redaxo
       MYSQL_PASSWORD: redaxo
-      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
