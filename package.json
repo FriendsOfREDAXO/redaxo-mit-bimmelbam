@@ -18,7 +18,7 @@
     "babelify": "^10",
     "browser-sync": "^2",
     "browserify": "^16",
-    "cpy": "^7",
+    "cpy": "^8",
     "cssnano": "^4",
     "del": "^5",
     "dotenv": "^8",
