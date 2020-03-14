@@ -35,8 +35,8 @@ Not included, but meaningful:
 
 ## Setup
 
-1. Install __Node__ (>= 6.9), if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
-2. Install __Yarn__ if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
+1. Install __Node__ (>= 10), if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
+2. Install __Yarn__ (1.x) if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
 3. Change to our directory in the terminal and fetch the required packages.  
    _Attention, several hundred megabytes of data are coming through the line!_  
 
@@ -79,34 +79,31 @@ To get the site ready for production, turn on `APP_ENV = production` and run Gul
 
 ---
 
-## Docker :whale: for the Backend
+## Docker 🐳 for the Backend?
 
 The front-end workflow is complete, so we can now optimize the development environment for the backend. For example with Docker, to enable a consistent setup for the team and to be independent of the local system environment of the computer.
 
-In addition to the front-end Bimmelbam, this package also includes a __simplified version of the package [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)__. The associated files and folders are:
-
-    db/
-    docker/
-    .dockerignore
-    docker-compose.yml
-
-:point_right: _If you do not want to run Bimmelbam with Docker, you can simply delete these components if it gets too confusing for you._
-
-We use Docker for Bimmelbam to provide a __server environment (Apache, PHP, MySQL)__. That’s pretty handy, because then your computer does not have to be set up for that, and besides, if you work in a team, you all end up with the same server environment, regardless of the operating system you’re using.
+We can make use of the [REDAXO docker images](https://github.com/FriendsOfREDAXO/docker-redaxo/) provided by Friends Of REDAXO to easily set up a local development environment.
 
 ### Setup
 
-__Edit `.env` file:__
+__Edit `.env` file__
+
+Update the `APP_HOST`:
 
     APP_HOST=http://localhost:20080
 
-:point_right: _We use port `20080` for HTTP and `23306` for the database, so as not to conflict with the standard ports `80`/`3306`, if they are already in use. That makes our setup more robust. If you use several Docker projects, you have to keep in mind that all these ports use and therefore only one can run at a time, not several at the same time._
+👉 _We use port `20080` for HTTP to avoid conflicts with the default port 80. That makes our setup more robust. If you use several Docker projects, you have to keep in mind that all these ports use and therefore only one can run at a time, not several at the same time._
+
+__Check the `docker-compose.yml` file:__
+
+All we need for our local Docker setup is the one `docker-compose.yml` file in our project root folder. It contains the Docker configuration.
+
+You might want to check if your projects requires some custom config. Afterwards, just start it up:
 
 ### Usage
 
-If Docker is new to you: no problem, there is a [Instruction for Beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#beginners-guide-rocket). :rocket:
-
-__Start Docker-Container:__
+__Start Docker container:__
 
     $ docker-compose up -d
 
@@ -114,26 +111,16 @@ __Open REDAXO in the browser:__
 
     http://localhost:3000
 
-:point_right: _We still use the port 3000 to call in the browser, as defined in Bimmelbam (see [config.js](https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/blob/d32f63df232f5273fd4b967a76e4cea5e90321fd/gulpfile.js/config.js#L14)). Bimmelbam uses a proxy pointing to port 20080, where Docker provides Apache. Do not let that confuse you._
+👉 _We still use the port 3000 to call in the browser, as defined in Bimmelbam (see [config.js](https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/blob/d32f63df232f5273fd4b967a76e4cea5e90321fd/gulpfile.js/config.js#L14)). Bimmelbam uses a proxy pointing to port 20080, where Docker provides Apache. Do not let that confuse you._
 
-### Differences between this setup and [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)
+__Stop Docker container:__
 
-The Docker setup in this package is less comprehensive than the setup in the _parent package_ »REDAXO with Docker«. Here, Docker is only supposed to provide a server environment and does without additional features. These are the differences:
+    $ docker-compose stop
 
-1. It does not automatically install a fresh REDAXO.
-2. It also does not install demo sites.
-3. It doesn’t include [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#use-mailhog) to send mails from REDAXO.
-4. HTTPS/SSL is not configured.
-5. The volume for the webroot is the folder `app/` while in the parent package it’s `html/`.
+### Get help and find further information
 
-If you prefer to work with the large Docker setup here in Bimmelbam, you can easily copy the required files and folders from »REDAXO with Docker«. After that, you only need to change the webroot to `app/` in `docker-compose.yml`. Everything else can be retained and should work seamlessly in Bimmelbam as well.
+If Docker is new to you, have a look at [Instruction for Beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#beginners-guide-rocket). 🚀
 
-### Further information, configuration and customization
+If you want to customize your setup, you might be interested to read through the [Recipes](https://github.com/FriendsOfREDAXO/docker-redaxo/tree/master/recipes) within our Docker-REDAXO-Repository.
 
-You will find a lot of information in the package [REDAXO with Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker), and also concerning these topics:
-
-* [How to adapt for your projects](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#customize-for-your-project)
-* [Configuration and tips](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#configuration-and-tips)
-* [Guide for beginners](https://github.com/FriendsOfREDAXO/redaxo-mit-docker#beginners-guide-rocket) 🚀
-
-If you have questions or need help, feel free to contact us in Slack Chat! You will receive an invitation here: https://redaxo.org/slack/
+If you have questions or need help, feel free to contact us in Slack Chat! You will receive an invitation here: [https://redaxo.org/slack/](https://redaxo.org/slack/).

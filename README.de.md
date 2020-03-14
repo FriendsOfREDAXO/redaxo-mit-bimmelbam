@@ -35,8 +35,8 @@ Nicht enthalten, aber sehr sinnvoll:
 
 ## Setup
 
-1. __Node__ (>= 6.9) installieren, falls noch nicht vorhanden. Kann als Paket direkt von der Website runtergeladen werden: [https://nodejs.org](https://nodejs.org)
-2. __Yarn__ installieren, falls noch nicht vorhanden ([Anleitung](https://yarnpkg.com/en/docs/install)).
+1. __Node__ (>= 10) installieren, falls noch nicht vorhanden. Kann als Paket direkt von der Website runtergeladen werden: [https://nodejs.org](https://nodejs.org)
+2. __Yarn__ (1.x) installieren, falls noch nicht vorhanden ([Anleitung](https://yarnpkg.com/en/docs/install)).
 3. Im Terminal in unser Verzeichnis wechseln und mittels Yarn die benötigten Pakete holen.  
 _Achtung, es kommen mehrere hundert Megabyte an Daten durch die Leitung!_  
 
@@ -80,33 +80,28 @@ Um die Website produktionsfertig zu machen, aktivierst du `APP_ENV=production` u
 
 ---
 
-## Docker :whale: fürs Backend
+## Docker 🐳 fürs Backend?
 
 Der Frontend-Workflow ist komplett, so dass wir nun die Entwicklungsumgebung fürs Backend optimieren können. Zum Beispiel mit Docker, um ein einheitliches Setup fürs Team zu ermöglichen und unabhängig von der lokalen Systemumgebung des Computers werden.
 
-Dieses Paket enthält neben dem Frontend-Bimmelbam auch eine __vereinfachte Version des Pakets [REDAXO mit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)__. Die zugehörigen Dateien und Ordner sind:
-
-    db/
-    docker/
-    .dockerignore
-    docker-compose.yml
-
-:point_right: _Falls du Bimmelbam nicht mit Docker betreiben möchtest, kannst du diese Komponenten einfach löschen, falls es dir sonst zu unübersichtlich wird._
-
-Wir verwenden Docker für Bimmelbam, um eine __Serverumgebung (Apache, PHP, MySQL)__ bereitzustellen. Das ist ziemlich praktisch, denn dann muss dein Computer nicht dafür eingerichtet werden, und zudem habt ihr, falls ihr im Team arbeitet, am Ende alle die gleiche Serverumgebung, unabhängig vom verwendeten Betriebssystem.
+Wir können die [REDAXO-Docker-Images](https://github.com/FriendsOfREDAXO/docker-redaxo/) benutzen, die von den Friends Of REDAXO bereitgestellt werden, um damit sehr schnell eine lokale Entwicklungsumgebung aufzusetzen.
 
 ### Setup
 
-__`.env` anpassen:__
+__Die `.env` anpassen:__
 
     APP_HOST=http://localhost:20080
 
-:point_right: _Wir benutzen Port `20080` für HTTP und `23306` für die Datenbank, um nicht in Konflikt mit den Standardports `80`/`3306` zu kommen, sollten diese bereits verwendet werden. Das macht unser Setup robuster.  
+👉 _Wir benutzen Port `20080` für HTTP, um Konflikte mit dem Standardport 80 zu vermeiden. Das macht unser Setup robuster.  
 Wenn du mehrere Docker-Projekte verwendest, musst du noch beachten, dass alle diese Ports verwenden und deshalb immer nur eins laufen kann, nicht mehrere gleichzeitig._
 
-### Verwendung
+__Die `docker-compose.yml` prüfen:__
 
-Falls Docker für dich neu ist: Gar kein Problem, es gibt eine [Anleitung für Einsteiger\_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#anleitung-für-einsteiger_innen-rocket). :rocket:
+Alles, was wir für unser lokales Docker-Setup benötigen, ist die eine Datei `docker-compose.yml` im Hauptverzeichnis unseres Projekts. Sie enthält die Docker-Konfiguration.
+
+Vielleicht möchtest du einmal prüfen, ob die Konfiguration für dein Projekt angepasst werden soll. Anschließend brauchst du es nur noch zu starten:
+
+### Verwendung
 
 __Docker-Container starten:__
 
@@ -116,27 +111,16 @@ __REDAXO im Browser aufrufen:__
 
     http://localhost:3000
 
-:point_right: _Wir benutzen zum Aufruf im Browser nachwievor den Port 3000, so wie in Bimmelbam definiert (siehe [config.js](https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/blob/d32f63df232f5273fd4b967a76e4cea5e90321fd/gulpfile.js/config.js#L14)). Bimmelbam verwendet einen Proxy und zeigt damit auf Port 20080, auf dem Docker den Apache bereitstellt. Lass dich davon nicht verwirren._
+👉 _Wir benutzen zum Aufruf im Browser nachwievor den Port 3000, so wie in Bimmelbam definiert (siehe [config.js](https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam/blob/d32f63df232f5273fd4b967a76e4cea5e90321fd/gulpfile.js/config.js#L14)). Bimmelbam verwendet einen Proxy und zeigt damit auf Port 20080, auf dem Docker den Apache bereitstellt. Lass dich davon nicht verwirren._
 
-### Unterschiede zum Setup in [REDAXO mit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)
+__Docker-Container stoppen:__
 
-Das Docker-Setup in diesem Paket ist weniger aufwendig gestrickt als das Setup im _großen_ Paket »REDAXO mit Docker«. Hier soll Docker lediglich eine Serverumgebung bereitstellen und verzichtet auf zusätzliche Features. Dies sind die Unterschiede:
+    $ docker-compose stop
 
-1. Es installiert dir nicht automatisch ein frisches REDAXO.
-2. Es installiert auch keine Demo-Websites.
-3. Es bringt keinen [Mailhog](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#mailhog-verwenden) mit, um den Mailversand in REDAXO zu testen.
-4. Der Zugriff mittels HTTPS ist nicht konfiguriert.
-5. Als Volume für den Webroot wird hier der Ordner `app/` verwendet, im anderen Paket ist es `html/`.
+### Hilfe und weitere Informationen
 
-Falls du hier in Bimmelbam lieber mit dem großen Docker-Setup arbeiten möchtest, kannst du benötigten Dateien und Ordner einfach aus »REDAXO mit Docker« hierher kopieren. Du musst danach lediglich in `docker-compose.yml` den Webroot auf `app/` ändern. Alles andere kann beibehalten werden und sollte nahtlos auch in Bimmelbam funktionieren.
+Wenn Docker neu für dich ist, schau dir vielleicht einmal die [Anleitung für Einsteiger\_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#anleitung-für-einsteiger_innen-rocket) an. 🚀
 
-### Weitere Infos, Konfiguration und Anpassung
+Wenn du dein Setup anpassen möchtest, interessieren dich womöglich die [Recipes](https://github.com/FriendsOfREDAXO/docker-redaxo/tree/master/recipes) in unserem Docker-REDAXO-Repository.
 
-Ganz viele Informationen findest du im Paket [REDAXO mit Docker](https://github.com/FriendsOfREDAXO/redaxo-mit-docker), unter anderem zu diesen Themen:
-
-* [Anpassungen für deine Projekte](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#anpassungen-für-deine-projekte)
-* [Konfiguration und Tipps](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#konfiguration-und-tipps)
-* [Anleitung für Einsteiger_innen](https://github.com/FriendsOfREDAXO/redaxo-mit-docker/blob/master/README.de.md#anleitung-für-einsteiger_innen-rocket) 🚀
-
-Falls du Fragen hast oder Hilfe benötigst, kontakte uns jederzeit gerne im Slack-Chat! Eine Einladung bekommst du hier: https://redaxo.org/slack/
-
+Falls du Fragen hast oder Hilfe benötigst, kontakte uns jederzeit gerne im Slack-Chat! Eine Einladung bekommst du hier: [https://redaxo.org/slack/](https://redaxo.org/slack/).
