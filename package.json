@@ -25,8 +25,8 @@
     "fancy-log": "^1",
     "gulp": "^4",
     "gulp-count": "^1",
-    "gulp-dart-sass": "^0.9.1",
-    "gulp-imagemin": "^6",
+    "gulp-dart-sass": "^0",
+    "gulp-imagemin": "^7",
     "gulp-nunjucks-html": "^2",
     "gulp-plumber": "^1",
     "gulp-postcss": "^8",
@@ -54,6 +54,6 @@
     "nunjucks": "nunjucks/browser/nunjucks-slim"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   }
 }
