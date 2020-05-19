@@ -33,7 +33,8 @@ Not included, but meaningful:
 * __Continuous integration (CI)__ to not always having to assemble the project by hand.
 * __Deployment__ and other Bimmelbam (means: stuff)
 
-## Setup
+## Setup 
+(For alternative setup with docker have a look below)
 
 1. Install __Node__ (>= 10), if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
 2. Install __Yarn__ (1.x) if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
@@ -91,6 +92,10 @@ We can make use of the [REDAXO docker images](https://github.com/FriendsOfREDAXO
 
 ### Setup
 
+Steps 1. to 4. are the same as above. 
+Skip over step 5.
+Step 6: Follow the instruction above but
+
 __Edit `.env` file__
 
 Update the `APP_HOST`:
@@ -101,9 +106,9 @@ Update the `APP_HOST`:
 
 __Check the `docker-compose.yml` file:__
 
-All we need for our local Docker setup is the one `docker-compose.yml` file in our project root folder. It contains the Docker configuration.
+All we need for our local Docker setup is the one `docker-compose.yml` file in our project root folder. It contains the Docker configuration. For easiest setup make sure to use the `docker-compose.yml` coming with bimmelbam. If you want to use one of the recipes provided by docker-redaxo you’ll need to edit ports (20080 instead of 80) and folders (app instead of html) according to bimmelbam’s requirements.
 
-You might want to check if your projects requires some custom config. Afterwards, just start it up:
+Afterwards, just start it up:
 
 ### Usage
 
