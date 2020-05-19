@@ -103,7 +103,7 @@ Wenn du mehrere Docker-Projekte verwendest, musst du noch beachten, dass alle di
 
 __Die `docker-compose.yml` prüfen:__
 
-Alles, was wir für unser lokales Docker-Setup benötigen, ist die eine Datei `docker-compose.yml` im Hauptverzeichnis unseres Projekts. Sie enthält die Docker-Konfiguration. Für den schnellen Einstieg kannst du die Datei nutzen, die Bimmelbam bereitstellt.
+Alles, was wir für unser lokales Docker-Setup benötigen, ist die eine Datei `docker-compose.yml` im Hauptverzeichnis unseres Projekts. Sie enthält die Docker-Konfiguration. Für den schnellen Einstieg kannst du die Datei nutzen, die Bimmelbam bereitstellt.  
 _Beachte: Falls du lieber eines der [Rezepte von docker-redaxo](https://github.com/FriendsOfREDAXO/docker-redaxo/tree/master/recipes) nutzen möchtest, wirst du die Posts (`20080` statt `80`) und Ordner (`app` statt `html`) anpassen müssen, damit die Bimmelbams Anforderungen entsprechen._
 
 Anschließend brauchst du es nur noch zu starten:
