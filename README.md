@@ -33,8 +33,7 @@ Not included, but meaningful:
 * __Continuous integration (CI)__ to not always having to assemble the project by hand.
 * __Deployment__ and other Bimmelbam (means: stuff)
 
-## Setup 
-(For alternative setup with docker have a look below)
+## Setup
 
 1. Install __Node__ (>= 10), if not already available. Can be downloaded as a package directly from the website: [https://nodejs.org](https://nodejs.org)
 2. Install __Yarn__ (1.x) if not already available ([Manual](https://yarnpkg.com/en/docs/install)).
@@ -92,9 +91,7 @@ We can make use of the [REDAXO docker images](https://github.com/FriendsOfREDAXO
 
 ### Setup
 
-Steps 1. to 4. are the same as above. 
-Skip over step 5.
-Step 6: Follow the instruction above but
+Frontend workflow is the same as above, since we do not install Node, Yarn and Gulp within the Docker container, but continue to use it on your local machine. However, with Docker, you don’t need to follow step 5, the localhost.
 
 __Edit `.env` file__
 
@@ -106,7 +103,8 @@ Update the `APP_HOST`:
 
 __Check the `docker-compose.yml` file:__
 
-All we need for our local Docker setup is the one `docker-compose.yml` file in our project root folder. It contains the Docker configuration. For easiest setup make sure to use the `docker-compose.yml` coming with bimmelbam. If you want to use one of the recipes provided by docker-redaxo you’ll need to edit ports (20080 instead of 80) and folders (app instead of html) according to bimmelbam’s requirements.
+All we need for our local Docker setup is the one `docker-compose.yml` file in our project root folder. It contains the Docker configuration. For easiest setup make sure to use the file coming with Bimmelbam.  
+_Hint: If you want to use one of the [recipes provided by docker-redaxo](https://github.com/FriendsOfREDAXO/docker-redaxo/tree/master/recipes), you’ll need to edit ports (`20080` instead of `80`) and folders (`app` instead of `html`) according to bimmelbam’s requirements._
 
 Afterwards, just start it up:
 

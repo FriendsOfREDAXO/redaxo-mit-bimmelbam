@@ -92,6 +92,8 @@ Wir können die [REDAXO-Docker-Images](https://github.com/FriendsOfREDAXO/docker
 
 ### Setup
 
+Der Frontend-Workflow ist der gleiche wie oben, weil wir Node, Yarn und Gulp nicht im Docker-Container installieren, sondern weiterhin lokal auf deiner Maschine benutzen. Allerdings, mit Docker brauchst du Schritt 5 nicht beachten, den Localhost.
+
 __Die `.env` anpassen:__
 
     APP_HOST=http://localhost:20080
@@ -101,9 +103,10 @@ Wenn du mehrere Docker-Projekte verwendest, musst du noch beachten, dass alle di
 
 __Die `docker-compose.yml` prüfen:__
 
-Alles, was wir für unser lokales Docker-Setup benötigen, ist die eine Datei `docker-compose.yml` im Hauptverzeichnis unseres Projekts. Sie enthält die Docker-Konfiguration.
+Alles, was wir für unser lokales Docker-Setup benötigen, ist die eine Datei `docker-compose.yml` im Hauptverzeichnis unseres Projekts. Sie enthält die Docker-Konfiguration. Für den schnellen Einstieg kannst du die Datei nutzen, die Bimmelbam bereitstellt.
+_Beachte: Falls du lieber eines der [Rezepte von docker-redaxo](https://github.com/FriendsOfREDAXO/docker-redaxo/tree/master/recipes) nutzen möchtest, wirst du die Posts (`20080` statt `80`) und Ordner (`app` statt `html`) anpassen müssen, damit die Bimmelbams Anforderungen entsprechen._
 
-Vielleicht möchtest du einmal prüfen, ob die Konfiguration für dein Projekt angepasst werden soll. Anschließend brauchst du es nur noch zu starten:
+Anschließend brauchst du es nur noch zu starten:
 
 ### Verwendung
 
