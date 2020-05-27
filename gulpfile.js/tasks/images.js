@@ -14,7 +14,7 @@ const task = () => gulp.src(config.images.sourceFiles)
     .pipe(process.env.APP_ENV === 'production' ? imagemin([
         // plugins (https://www.npmjs.com/browse/keyword/imageminplugin)
         imagemin.gifsicle(),
-        imagemin.jpegtran(),
+        imagemin.mozjpeg(),
         imagemin.optipng(),
         imagemin.svgo()
     ], {

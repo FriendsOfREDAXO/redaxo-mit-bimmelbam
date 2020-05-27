@@ -16,7 +16,10 @@ const config = {
         'reloadOnRestart': true,
         'notify': false,
         'reloadDelay': 0,
-        'ghostMode': false // disable mirroring clicks, scrolls and forms. it’s too buggy.
+        'ghostMode': false, // disable mirroring clicks, scrolls and forms. it’s too buggy.
+        'snippetOptions': {
+            'ignorePaths': ["redaxo/**"]
+        }
     },
 
     // Clean
@@ -42,7 +45,7 @@ const config = {
         },
         {
             'title': 'Material Icons',
-            'sourceFolder': './node_modules/material-design-icons/iconfont',
+            'sourceFolder': './node_modules/material-design-icons-iconfont/dist/fonts',
             'sourceFiles': ['*.{woff,woff2}'],
             'destinationFolder': './app/assets/fonts'
         }

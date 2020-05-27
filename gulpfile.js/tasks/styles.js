@@ -2,13 +2,13 @@ const gulp = require('gulp');
 const through = require('through');
 const log = require('fancy-log');
 const colors = require('ansi-colors');
-const sass = require('gulp-sass');
+const sass = require('gulp-dart-sass');
 const sassGlob = require('gulp-sass-glob');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const customProperties = require('postcss-custom-properties');
-const nano = require('gulp-cssnano');
+const cssnano = require('cssnano');
 const browserSync = require('browser-sync');
 const size = require('gulp-size');
 const plumber = require('gulp-plumber');
@@ -19,6 +19,17 @@ const config = require('../config');
 
 const task = (done) => {
     let hasErrors = false; // init
+
+    // define PostCSS plugins
+    let postcssPlugins = [
+        customProperties(),
+        autoprefixer(), // autoprefixer uses config from .browserslistrc
+    ];
+    if (process.env.APP_ENV === 'production') {
+        // compress (production)
+        postcssPlugins.push(cssnano(config.cssnano));
+    }
+
     return gulp.src(config.styles.sourceFiles)
 
         // init sourcemaps
@@ -54,17 +65,11 @@ const task = (done) => {
             done();
         })
 
-        // run postcss plugins
-        .pipe(postcss([
-            customProperties(),
-            autoprefixer() // autoprefixer uses config from .browserslistrc
-        ]))
+        // run postcss with plugins
+        .pipe(postcss(postcssPlugins))
 
         // stop error prevention
         .pipe(plumber.stop())
-
-        // compress (production)
-        .pipe(process.env.APP_ENV === 'production' ? nano(config.cssnano) : through())
 
         // log
         .pipe(!hasErrors ? through(log(colors.white('CSS files generated:'))) : through())
