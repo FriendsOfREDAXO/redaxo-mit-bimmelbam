@@ -26,7 +26,14 @@ const b = browserify({
 
 // add transforms
 b.transform("babelify", {
-    presets: ["@babel/env"]
+    presets: ["@babel/env"],
+    global: true,
+    plugins: [
+        [
+            "@babel/plugin-transform-runtime",
+            { "regenerator": true }
+        ]
+    ]
 });
 
 // watch for events
