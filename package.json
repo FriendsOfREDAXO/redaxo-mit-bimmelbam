@@ -43,6 +43,7 @@
     "modernizr": "^3",
     "node-notifier": "^6",
     "postcss-custom-properties": "^9",
+    "postcss": "^8",
     "require-dir": "^1",
     "terser": "^4",
     "through": "^2",
