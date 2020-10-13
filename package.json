@@ -28,6 +28,7 @@
     "gulp-count": "^1",
     "gulp-dart-sass": "^0",
     "gulp-imagemin": "^7",
+    "gulp-modernizr": "^4",
     "gulp-nunjucks-html": "^2",
     "gulp-plumber": "^1",
     "gulp-postcss": "^8",
